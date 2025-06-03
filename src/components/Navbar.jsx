@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Store</a>
+    <a class="navbar-brand" href="Mystore">Store</a>
     <button class="navbar-toggler" onClick={handletoggle} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       {
       showmenu? <i class="bi bi-x-circle"></i> : <span class="navbar-toggler-icon"></span>
