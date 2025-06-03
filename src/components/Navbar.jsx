@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Store</a>
     <button class="navbar-toggler" onClick={handletoggle} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       {
       showmenu? <i class="bi bi-x-circle"></i> : <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@ export default function Navbar() {
           <a class="nav-link" href="#">Pricing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Top <Products></Products></a>
         </li>
       </ul>
     </div>
