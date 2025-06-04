@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="navbar is-fixed-top is-fullwidth" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="hello">
-          <img src="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-shuffle-icon-image_1257310.jpg" alt="Logo" />
+          <img src="https://png.pngtree.com/png-vector/20220207/ourmid/pngtree-e-letter-logo-ecommerce-shop-store-design-png-image_4381099.png" alt="Logo" />
         </a>
 
         <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
