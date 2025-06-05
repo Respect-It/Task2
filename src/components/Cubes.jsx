@@ -24,7 +24,7 @@ export default function Cubes () {
               <p className="title is-4">MoKo Case htmlFor iPad (A16)</p>
               <p className="subtitle is-6">@IOS</p>
               <br />
-              <h4><b>Price=</b>999.99PKR</h4>
+              <center><h4><b>Price=</b>999.00PKR</h4></center>
               <br />
               <button className="button">Add To Cart</button>
             </div>
