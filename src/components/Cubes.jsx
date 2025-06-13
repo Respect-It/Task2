@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Rating } from 'react-simple-star-rating'
 export default function Cubes(props) {
   return (
     <div className="card">
@@ -40,6 +41,7 @@ export default function Cubes(props) {
           <h4>
             <b>Rating</b>
           </h4>
+         <Rating readonly={true} allowFraction={true} initialValue={props.product.rating.rate} />
           </div>
         </div>
       </div>
