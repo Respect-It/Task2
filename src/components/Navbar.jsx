@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const Navbar = (props) => {
-  console.log("im new", props);
+const Navbar = () => {
   
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);

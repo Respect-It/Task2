@@ -1,18 +1,24 @@
 import Navbar from './components/Navbar';
-import { useState } from 'react';
+import { Profiler, useState } from 'react';
 import './App.css';
 import Cubes from './components/Cubes';
+import {products} from './data'
 
 export default function App() {
-  const [num, setNum] = useState(10)
+  // const [products, setProducts] = useState(products)
   return (
     <>
-      <Navbar num={num}/>
+      <Navbar/>
       <div className="container">
     <div className="row">
+      {
+        products.map(products=>(
+      
       <div className="col-md-4">
-     <Cubes/>
+     <Cubes product={products}/>
       </div>
+      ))
+    }
      </div>
      </div>
     </>
