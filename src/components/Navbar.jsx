@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 
 const Navbar = () => {
   
@@ -13,21 +14,21 @@ const Navbar = () => {
       <div className="navbar-logo">Mern Stack</div>
 
       <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
 
         <div className="dropdown" onClick={toggleDropdown}>
           <span className="dropdown-toggle">Services </span>
           {isDropdownOpen && (
             <div className="dropdown-menu">
-              <a href="/web">Full Stack Web Development</a>
-              <a href="/app">App Development</a>
-              <a href="/seo">SEO</a>
+              <Link to="/web">Full Stack Web Development</Link>
+              <Link to="/app">App Development</Link>
+              <Link to="/Services">Services</Link>
             </div>
           )}
         </div>
 
-        <a href="/contact">Contact Us</a>
+        <Link to="/contact">Contact Us</Link>
       </div>
 
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>

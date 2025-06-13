@@ -214,3 +214,75 @@
     display: block;
   }
 }
+
+/* this is the 404 page css */
+.notfound-container {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  overflow: hidden;
+}
+
+.notfound-title {
+  font-size: 10rem;
+  font-weight: 600;
+  color: #ff6b6b;
+  animation: float 2s ease-in-out infinite;
+}
+
+.notfound-message {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.notfound-button {
+  padding: 12px 30px;
+  background: #4dabf7;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.notfound-button:hover {
+  background: #339af0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .notfound-title {
+    font-size: 6rem;
+  }
+
+  .notfound-message {
+    font-size: 1.2rem;
+  }
+}
