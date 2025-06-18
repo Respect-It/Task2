@@ -1,33 +1,31 @@
 import { useState } from "react";
-import { Rating } from 'react-simple-star-rating'
+import { Rating } from "react-simple-star-rating";
 export default function Cubes(props) {
+  function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength) + "...";
+  }
   return (
     <div className="card">
       <div className="card-image">
         <figure className="image is-4by3">
-          <img
-            src={props.product.image}
-            alt="Placeholder image"
-          />
+          <img src={props.product.image} alt="Placeholder image" />
         </figure>
       </div>
       <div className="card-content">
         <div className="media">
           <div className="media-left">
             <figure className="image is-48x48">
-              <img
-                src={props.product.image}
-                alt="Placeholder image"
-              />
+              <img src={props.product.image} alt="Placeholder image" />
             </figure>
           </div>
           <div className="media-content">
             <p className="title is-4">{props.product.title}</p>
-            <p className="subtitle is-6">@IOS</p>
+            <p className="subtitle is-6"></p>
             <br />
             <h4>
-              <b>Price=</b>
-              <u>{props.product.price}</u>
+              <b>PKr. </b>
+              <b>{props.product.price}</b>
             </h4>
             <br />
             <button className="button">Add To Cart</button>
@@ -35,15 +33,19 @@ export default function Cubes(props) {
         </div>
 
         <div className="content">
-          {props.product.description}<a>@IOS</a>
+          {truncateText(props.product.description, 100)}
           <br />
           <br />
           <h4>
             <b>Rating</b>
           </h4>
-         <Rating readonly={true} allowFraction={true} initialValue={props.product.rating.rate} />
-          </div>
+          <Rating
+            readonly={true}
+            allowFraction={true}
+            initialValue={props.product.rating.rate}
+          />
         </div>
       </div>
+    </div>
   );
 }
