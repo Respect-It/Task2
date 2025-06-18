@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import { Rating } from "react-simple-star-rating";
 export default function Cubes(props) {
   function truncateText(text, maxLength) {
@@ -20,7 +21,9 @@ export default function Cubes(props) {
             </figure>
           </div>
           <div className="media-content">
-            <p className="title is-4">{props.product.title}</p>
+            <Link>
+              <p className="title is-4">{props.product.title}</p>
+            </Link>
             <p className="subtitle is-6"></p>
             <br />
             <h4>

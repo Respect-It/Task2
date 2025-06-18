@@ -18,12 +18,12 @@ const Navbar = () => {
         <Link to="/about">About</Link>
 
         <div className="dropdown" onClick={toggleDropdown}>
-          <span className="dropdown-toggle">Services </span>
+          <span className="dropdown-toggle">Products </span>
           {isDropdownOpen && (
             <div className="dropdown-menu">
-              <Link to="/web">Full Stack Web Development</Link>
-              <Link to="/app">App Development</Link>
-              <Link to="/Services">Services</Link>
+              <Link to="/web">Men's Product</Link>
+              <Link to="/app">Women's Product</Link>
+              <Link to="/Services">All Categories</Link>
             </div>
           )}
         </div>
