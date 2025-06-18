@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router';
+import React, { useState } from "react";
+import { Link } from "react-router";
 
 const Navbar = () => {
-  
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
 
-  return (
+  return (  
     <nav className="navbar">
-      <div className="navbar-logo">Mern Stack</div>
-
-      <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+      <Link to="/">
+        <div className="navbar-logo">Mern Stack</div>
+      </Link>
+      <div className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
 
