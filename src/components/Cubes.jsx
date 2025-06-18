@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; // Note: Changed 'react-router' to 'react-router-dom'
 import { Rating } from "react-simple-star-rating";
 import Products from "../pages/Products";
+
 export default function Cubes(props) {
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength) + "...";
   }
+
   return (
     <div className="card">
       <div className="card-image">
@@ -22,7 +24,7 @@ export default function Cubes(props) {
             </figure>
           </div>
           <div className="media-content">
-            <Link to={'/product/$=(props.product.id)'}>
+            <Link to={`/product/${props.product.id}`}>
               <p className="title is-4">{props.product.title}</p>
             </Link>
             <p className="subtitle is-6"></p>
