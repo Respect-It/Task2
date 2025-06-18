@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { products } from "../data";
-import Cubes from "../components/Cubes";
+import Cards from "../components/Cards";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
         <div className="row">
           {products.map((products) => (
             <div className="col-md-4">
-              <Cubes product={products} />
+              <Cards product={products} />
             </div>
           ))}
         </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Note: Changed 'react-router' to 'rea
 import { Rating } from "react-simple-star-rating";
 import Products from "../pages/Products";
 
-export default function Cubes(props) {
+export default function Cards(props) {
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength) + "...";

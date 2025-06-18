@@ -2,7 +2,6 @@
   text-align: center;
   margin-top: 5px;
 }
-    
 
 /* Labels */
 .rating label {
@@ -47,7 +46,7 @@
 .media {
   margin-bottom: 10px;
 }
-.media-content{
+.media-content {
   text-align: justify;
 }
 
@@ -129,7 +128,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -286,10 +285,9 @@ body {
   }
 }
 
-
 /* this is the 404 page css */
 .notfound-container {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100vh;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   display: flex;
@@ -341,7 +339,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
