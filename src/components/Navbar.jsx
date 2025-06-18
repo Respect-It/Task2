@@ -21,9 +21,9 @@ const Navbar = () => {
           <span className="dropdown-toggle">Products </span>
           {isDropdownOpen && (
             <div className="dropdown-menu">
-              <Link to="/web">Men's Product</Link>
-              <Link to="/app">Women's Product</Link>
-              <Link to="/Services">All Categories</Link>
+              <Link to="/Men's Product">Men's Product</Link>
+              <Link to="/Women's Product">Women's Product</Link>
+              <Link to="/Categories">All Categories</Link>
             </div>
           )}
         </div>
