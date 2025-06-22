@@ -29,10 +29,10 @@ export default function Cards(props) {
             </Link>
             <p className="subtitle is-6"></p>
             <br />
-            <h4>
+            <strong>
               <b>PKr. </b>
               <b>{props.product.price}</b>
-            </h4>
+            </strong>
             <br />
             <button className="button">Add To Cart</button>
           </div>
