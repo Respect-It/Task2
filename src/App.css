@@ -106,6 +106,7 @@
   text-decoration: none; /* Remove underline if it's a link */
   box-sizing: border-box; /* Ensure padding and borders are included in the width/height calculation */
   margin-left: 20px;
+  margin-top: 15px;
 }
 
 /* Hover Effect */
