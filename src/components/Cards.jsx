@@ -2,12 +2,20 @@ import { useState } from "react";
 import { Link } from "react-router-dom"; // Note: Changed 'react-router' to 'react-router-dom'
 import { Rating } from "react-simple-star-rating";
 import Products from "../pages/Products";
+import { CountContext } from "../App";
+import { useContext } from "react";
 
 export default function Cards(props) {
+  const {count, setCount}= useContext(CountContext)
+
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength) + "...";
+     
   }
+  const handleClick =() =>{
+    setCount(count + 1)
+   }
 
   return (
     <div className="card">
@@ -34,7 +42,7 @@ export default function Cards(props) {
               <b>{props.product.price}</b>
             </strong>
             <br />
-            <button className="button">Add To Cart</button>
+            <button className="button" onClick={handleClick}>Add To Cart</button>
           </div>
         </div>
 

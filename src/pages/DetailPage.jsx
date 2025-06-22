@@ -2,7 +2,10 @@ import React from "react";
 import { useParams } from "react-router";
 import { products } from "../data";
 import { Rating } from "react-simple-star-rating";
+import { useContext } from "react";
+import { CountContext } from "../App";
 function DetailPage() {
+  const {count, setCount}=useContext(CountContext)
   const { id } = useParams();
   const product = products.find((item) => item.id == id);
   return (

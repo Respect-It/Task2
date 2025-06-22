@@ -92,7 +92,7 @@
 /* Button CSS */
 /* Default Button Styling */
 .button {
-  padding: 12px 24px; /* Size the button */
+  padding: 1px 2px; /* Size the button */
   background-color: #6098ec; /* Vibrant red background */
   color: rgb(245, 244, 244); /* White text */
   font-size: 1rem; /* Text size */
@@ -105,8 +105,9 @@
   display: inline-block; /* Allow inline display */
   text-decoration: none; /* Remove underline if it's a link */
   box-sizing: border-box; /* Ensure padding and borders are included in the width/height calculation */
-  margin-left: 20px;
+  margin-right: 0px;
   margin-top: 15px;
+  width: 250px;
 }
 
 /* Hover Effect */
