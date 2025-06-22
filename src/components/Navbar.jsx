@@ -28,7 +28,7 @@ const Navbar = () => {
           )}
         </div>
 
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/cart"><i class="bi bi-cart"></i></Link>
       </div>
 
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
