@@ -14,7 +14,6 @@ const Navbar = () => {
         <div className="navbar-logo">Mern Stack</div>
       </Link>
       <div className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
-        <Link to="/">Home</Link>
         <Link to="/about">About</Link>
 
         <div className="dropdown" onClick={toggleDropdown}>

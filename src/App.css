@@ -13,12 +13,14 @@
 /* Card CSS */
 /* Card container */
 .card {
+  background: linear-gradient(to right, #ddd5d500, #fafafa00);
   max-width: 350px; /* Set a max width for smaller card */
   margin: 20px auto; /* Add margin at the top and bottom of the card */
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 7px; /* Rounded corners */
   overflow: hidden; /* Prevents content from overflowing */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.2s ease-in-out;
+  border-radius: 20px;
 }
 
 /* Hover effect */
@@ -61,18 +63,18 @@
 
 .media-content .subtitle {
   font-size: 0.875rem; /* Smaller subtitle */
-  color: #555;
+  color: #5a5757;
 }
 
 /* Content section */
 .card-content .content {
-  font-size: 0.875rem; /* Smaller content text */
-  color: #333;
+  font-size: 1rem; /* Smaller content text */
+  color: #000000;
 }
 
 .card-content .content time {
   font-size: 0.75rem;
-  color: #888;
+  color: #9e9c9c;
 }
 
 /* Responsiveness */
@@ -91,8 +93,8 @@
 /* Default Button Styling */
 .button {
   padding: 12px 24px; /* Size the button */
-  background-color: #032e70; /* Vibrant red background */
-  color: rgb(255, 255, 255); /* White text */
+  background-color: #6098ec; /* Vibrant red background */
+  color: rgb(245, 244, 244); /* White text */
   font-size: 1rem; /* Text size */
   font-weight: bold; /* Bold text */
   border: none; /* Remove default border */
@@ -132,16 +134,16 @@
 }
 
 body {
-  background: linear-gradient(to right, #141e30, #232425);
-  color: white;
+  background: linear-gradient(to right, #c9bcbcc7, #4f5052);
+  color: rgb(231, 223, 223);
 }
 
 /* Navbar Container */
 .navbar {
-  background: rgba(16, 16, 18, 0.3); /* transparent glass effect */
+  background: rgba(61, 61, 61, 0.404); /* transparent glass effect */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-radius: 50px;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -156,7 +158,7 @@ body {
 .navbar-logo {
   font-size: 1.8rem;
   font-weight: bold;
-  background: linear-gradient(45deg, #00d2ff, #3673c9);
+  background: linear-gradient(45deg, #4bcce9, #d0d9e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -196,14 +198,14 @@ body {
 }
 
 /* Dropdown */
-.dropdown {
+.dropdown { 
   position: relative;
   cursor: pointer;
 }
 
 .dropdown-menu {
   position: absolute;
-  background: rgba(20, 20, 20, 0.9);
+  background: rgba(238, 22, 22, 0);
   top: 120%;
   left: 0;
   flex-direction: column;
@@ -324,7 +326,7 @@ body {
 }
 
 .notfound-button:hover {
-  background: #339af0;
+  background: #2e2f30;
 }
 
 @keyframes fadeIn {
