@@ -11,7 +11,7 @@ function DetailPage() {
       </div>  
       <div className="detail-product">
         <h2>{product.title}</h2>
-        <br />
+        <br />  
         <u>
           <p>{product.description}</p>
         </u>
