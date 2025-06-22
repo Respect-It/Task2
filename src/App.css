@@ -41,7 +41,7 @@
 
 /* Card content */
 .card-content {
-  padding: 15px;
+  padding: 10px;
 }
 
 /* Media (avatar section) */
@@ -142,8 +142,7 @@ body {
 .navbar {
   background: rgba(61, 61, 61, 0.404); /* transparent glass effect */
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 50px;
+  -webkit-backdrop-filter: blur(10px); 
   padding: 1rem 2rem;
   display: flex;
   align-items: center;

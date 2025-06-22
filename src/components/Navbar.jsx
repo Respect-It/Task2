@@ -27,7 +27,7 @@ const Navbar = () => {
           )}
         </div>
 
-        <Link to="/cart"><i class="bi bi-cart"></i></Link>
+        <Link to="/cart"><i className="bi bi-cart"></i></Link>
       </div>
 
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
