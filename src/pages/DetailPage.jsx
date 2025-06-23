@@ -5,7 +5,7 @@ import { Rating } from "react-simple-star-rating";
 import { useContext } from "react";
 import { CountContext } from "../App";
 function DetailPage() {
-  const {count, setCount}=useContext(CountContext)
+  const { count, setCount } = useContext(CountContext);
   const { id } = useParams();
   const product = products.find((item) => item.id == id);
   return (
@@ -43,11 +43,11 @@ function DetailPage() {
           Add To Cart
         </button>
         <center>
-        <Rating
-          readonly={true}
-          allowFraction={true}
-          initialValue={product.rating.rate}
-        />
+          <Rating
+            readonly={true}
+            allowFraction={true}
+            initialValue={product.rating.rate}
+          />
         </center>
       </div>
     </>

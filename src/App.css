@@ -1,133 +1,4 @@
-.content {
-  text-align: center;
-  margin-top: 5px;
-}
-
-/* Labels */
-.rating label {
-  pointer-events: none; /* Prevent labels from being clicked directly */
-}
-.container {
-  margin-top: 100px;
-}
-/* Card CSS */
-/* Card container */
-.card {
-  background: linear-gradient(to right, #ddd5d500, #fafafa00);
-  max-width: 350px; /* Set a max width for smaller card */
-  margin: 20px auto; /* Add margin at the top and bottom of the card */
-  border-radius: 7px; /* Rounded corners */
-  overflow: hidden; /* Prevents content from overflowing */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.2s ease-in-out;
-  border-radius: 20px;
-}
-
-/* Hover effect */
-.card:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
-/* Image */
-.card-image figure {
-  margin: 0;
-}
-
-.card-image img {
-  object-fit: cover;
-  width: 100%; /* Ensure the image fills the container */
-  height: 200px; /* Fixed height for the image */
-}
-
-/* Card content */
-.card-content {
-  padding: 10px;
-}
-
-/* Media (avatar section) */
-.media {
-  margin-bottom: 10px;
-}
-.media-content {
-  text-align: justify;
-}
-
-.media-left figure img {
-  border-radius: 50%;
-}
-
-.media-content .title {
-  font-size: 1rem; /* Smaller title */
-  font-weight: bold;
-}
-
-.media-content .subtitle {
-  font-size: 0.875rem; /* Smaller subtitle */
-  color: #5a5757;
-}
-
-/* Content section */
-.card-content .content {
-  font-size: 1rem; /* Smaller content text */
-  color: #000000;
-}
-
-.card-content .content time {
-  font-size: 0.75rem;
-  color: #9e9c9c;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .card {
-    max-width: 100%; /* Full width on smaller screens */
-    margin: 15px; /* Reduce margin */
-  }
-
-  .card-image img {
-    height: 180px; /* Slightly smaller image for mobile */
-  }
-}
-
-/* Button CSS */
-/* Default Button Styling */
-.button {
-  padding: 1px 2px; /* Size the button */
-  background-color: #6098ec; /* Vibrant red background */
-  color: rgb(245, 244, 244); /* White text */
-  font-size: 1rem; /* Text size */
-  font-weight: bold; /* Bold text */
-  border: none; /* Remove default border */
-  border-radius: 25px; /* Rounded corners */
-  text-align: center; /* Center the text */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  display: inline-block; /* Allow inline display */
-  text-decoration: none; /* Remove underline if it's a link */
-  box-sizing: border-box; /* Ensure padding and borders are included in the width/height calculation */
-  margin-right: 0px;
-  margin-top: 15px;
-  width: 250px;
-}
-
-/* Hover Effect */
-.button:hover {
-  background-color: #d8d8d8; /* Darker red on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-/* Active Button State */
-.button:active {
-  transform: scale(0.98); /* Slight shrink effect when clicked */
-}
-
-/* Focus Styling (Remove default focus outline) */
-.button:focus {
-  outline: none; /* Remove focus outline */
-  box-shadow: 0 0 0 3px rgba(196, 196, 196, 0.5); /* Optional: add a subtle glow around button when focused */
-}
-/* This is Navbar CSS */
-/* Reset basic styling */
+/* ================== GLOBAL STYLES ================== */
 * {
   margin: 0;
   padding: 0;
@@ -136,15 +7,25 @@
 }
 
 body {
-  background: linear-gradient(to right, #c9bcbcc7, #4f5052);
-  color: rgb(231, 223, 223);
+  background: linear-gradient(to bottom, #c9bcbcc7, #4f5052);
+  color: rgb(255, 255, 255);
 }
 
-/* Navbar Container */
+/* ================== LAYOUT ================== */
+.container {
+  margin-top: 100px;
+}
+
+.content {
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* ================== NAVBAR ================== */
 .navbar {
-  background: rgba(61, 61, 61, 0.404); /* transparent glass effect */
+  background: rgba(61, 61, 61, 0.404);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -155,7 +36,6 @@ body {
   z-index: 100;
 }
 
-/* Logo */
 .navbar-logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -164,7 +44,6 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Navbar Links */
 .navbar-links {
   display: flex;
   gap: 2rem;
@@ -199,7 +78,7 @@ body {
 }
 
 /* Dropdown */
-.dropdown { 
+.dropdown {
   position: relative;
   cursor: pointer;
 }
@@ -234,7 +113,7 @@ body {
   color: #61dafb;
 }
 
-/* Mobile */
+/* Mobile Navbar */
 .mobile-menu-icon {
   font-size: 2rem;
   color: white;
@@ -265,30 +144,113 @@ body {
   }
 }
 
-/* Animations */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10%);
+/* ================== CARD COMPONENT ================== */
+.card {
+  background: linear-gradient(to right, #ddd5d500, #fafafa00);
+  max-width: 350px;
+  margin: 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image figure {
+  margin: 0;
+}
+
+.card-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content .content {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.card-content .content time {
+  font-size: 0.75rem;
+  color: #9e9c9c;
+}
+
+.media {
+  margin-bottom: 10px;
+}
+
+.media-left figure img {
+  border-radius: 50%;
+}
+
+.media-content {
+  text-align: justify;
+}
+
+.media-content .title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.media-content .subtitle {
+  font-size: 0.875rem;
+  color: #5a5757;
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+    margin: 15px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .card-image img {
+    height: 180px;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* ================== BUTTON STYLES ================== */
+.button {
+  padding: 1px 2px;
+  background-color: #6098ec;
+  color: rgb(245, 244, 244);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin-right: 0px;
+  margin-top: 15px;
+  width: 250px;
 }
 
-/* this is the 404 page css */
+.button:hover {
+  background-color: #d8d8d8;
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 196, 196, 0.5);
+}
+
+/* ================== 404 PAGE ================== */
 .notfound-container {
   font-family: "Poppins", sans-serif;
   height: 100vh;
@@ -330,6 +292,39 @@ body {
   background: #2e2f30;
 }
 
+@media (max-width: 600px) {
+  .notfound-title {
+    font-size: 6rem;
+  }
+
+  .notfound-message {
+    font-size: 1.2rem;
+  }
+}
+
+/* ================== DETAIL PRODUCT PAGE ================== */
+.detail-product {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.product-image {
+  width: 200px;
+  margin-left: 43%;
+}
+
+/* ================== ANIMATIONS ================== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -342,8 +337,7 @@ body {
 }
 
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
@@ -351,20 +345,7 @@ body {
   }
 }
 
-@media (max-width: 600px) {
-  .notfound-title {
-    font-size: 6rem;
-  }
-
-  .notfound-message {
-    font-size: 1.2rem;
-  }
-}
-.detail-product{
-  text-align: center;
-  margin-top: 50px;
-}
-.product-image{
-  width: 200px;
-  margin-left: 43%;
+/* ================== FORM ELEMENTS ================== */
+.rating label {
+  pointer-events: none;
 }
