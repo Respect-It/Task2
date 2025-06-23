@@ -8,6 +8,9 @@ function DetailPage() {
   const { count, setCount } = useContext(CountContext);
   const { id } = useParams();
   const product = products.find((item) => item.id == id);
+const handleClick =() =>{
+  setCount(count + 1)
+ }
   return (
     <>
       <div className="product-image">
@@ -38,7 +41,7 @@ function DetailPage() {
             cursor: "pointer", // Pointer cursor on hover
             boxShadow: "0 4px 6px rgba(3, 3, 3, 0.1)", // Subtle shadow for 3D effect
             transition: "all 0.3s ease", // Smooth transition for hover effects
-          }}
+          }}  onClick={handleClick}
         >
           Add To Cart
         </button>
