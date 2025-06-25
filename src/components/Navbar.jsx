@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../App";
+import Banner from "./Banner";
 
 function Navbar() {
   const { cart, setCart } = useContext(CartContext);
@@ -41,5 +42,5 @@ function Navbar() {
     </nav>
   );
 }
-
+<Banner/>
 export default Navbar;

@@ -1,4 +1,6 @@
-/* ================== GLOBAL STYLES ================== */
+/* =====================================================
+   GLOBAL STYLES
+===================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +10,12 @@
 
 body {
   background: linear-gradient(to bottom, #c9bcbcc7, #4f5052);
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 }
 
-/* ================== LAYOUT ================== */
+/* =====================================================
+   LAYOUT WRAPPERS
+===================================================== */
 .container {
   margin-top: 100px;
 }
@@ -21,7 +25,9 @@ body {
   margin-top: 5px;
 }
 
-/* ================== NAVBAR ================== */
+/* =====================================================
+   NAVBAR STYLES
+===================================================== */
 .navbar {
   background: rgba(61, 61, 61, 0.404);
   backdrop-filter: blur(10px);
@@ -77,7 +83,9 @@ body {
   color: #61dafb;
 }
 
-/* Dropdown */
+/* ---------------------
+   NAVBAR DROPDOWN
+---------------------- */
 .dropdown {
   position: relative;
   cursor: pointer;
@@ -85,7 +93,7 @@ body {
 
 .dropdown-menu {
   position: absolute;
-  background: rgba(238, 22, 22, 0);
+  background: transparent;
   top: 120%;
   left: 0;
   flex-direction: column;
@@ -113,7 +121,9 @@ body {
   color: #61dafb;
 }
 
-/* Mobile Navbar */
+/* ---------------------
+   NAVBAR MOBILE MENU
+---------------------- */
 .mobile-menu-icon {
   font-size: 2rem;
   color: white;
@@ -144,7 +154,9 @@ body {
   }
 }
 
-/* ================== CARD COMPONENT ================== */
+/* =====================================================
+   CARD COMPONENT
+===================================================== */
 .card {
   background: linear-gradient(to right, #ddd5d500, #fafafa00);
   max-width: 350px;
@@ -175,7 +187,7 @@ body {
 
 .card-content .content {
   font-size: 1rem;
-  color: #000000;
+  color: #000;
 }
 
 .card-content .content time {
@@ -216,11 +228,13 @@ body {
   }
 }
 
-/* ================== BUTTON STYLES ================== */
+/* =====================================================
+   BUTTON STYLES
+===================================================== */
 .button {
   padding: 1px 2px;
   background-color: #6098ec;
-  color: rgb(245, 244, 244);
+  color: #f5f4f4;
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -230,8 +244,6 @@ body {
   transition: background-color 0.3s ease, transform 0.3s ease;
   display: inline-block;
   text-decoration: none;
-  box-sizing: border-box;
-  margin-right: 0px;
   margin-top: 15px;
   width: 250px;
 }
@@ -250,7 +262,9 @@ body {
   box-shadow: 0 0 0 3px rgba(196, 196, 196, 0.5);
 }
 
-/* ================== 404 PAGE ================== */
+/* =====================================================
+   404 PAGE STYLES
+===================================================== */
 .notfound-container {
   font-family: "Poppins", sans-serif;
   height: 100vh;
@@ -302,7 +316,9 @@ body {
   }
 }
 
-/* ================== DETAIL PRODUCT PAGE ================== */
+/* =====================================================
+   PRODUCT DETAIL PAGE
+===================================================== */
 .detail-product {
   text-align: center;
   margin-top: 50px;
@@ -313,7 +329,9 @@ body {
   margin-left: 43%;
 }
 
-/* ================== ANIMATIONS ================== */
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -345,12 +363,16 @@ body {
   }
 }
 
-/* ================== FORM ELEMENTS ================== */
+/* =====================================================
+   FORM ELEMENTS (Rating Stars)
+===================================================== */
 .rating label {
   pointer-events: none;
 }
 
-/* Container for the entire cart */
+/* =====================================================
+   CART COMPONENT
+===================================================== */
 .cart-container {
   max-width: 800px;
   margin: 40px auto;
@@ -359,10 +381,8 @@ body {
   border-radius: 12px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Styled header text */
 .cart-header {
   text-align: center;
   font-size: 28px;
@@ -373,7 +393,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Styled footer */
 .cart-footer {
   text-align: center;
   font-size: 18px;
@@ -383,7 +402,6 @@ body {
   padding-top: 12px;
 }
 
-/* Individual cart item layout */
 .cart-item {
   display: flex;
   align-items: center;
@@ -399,7 +417,6 @@ body {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Product image */
 .cart-item img {
   width: 100px;
   height: 100px;
@@ -408,7 +425,6 @@ body {
   margin-right: 20px;
 }
 
-/* Title & price block */
 .item-details {
   flex: 1;
 }
@@ -425,7 +441,6 @@ body {
   color: #666;
 }
 
-/* Delete button */
 .delete-button {
   background-color: #ff4d4f;
   color: white;
@@ -440,3 +455,61 @@ body {
   background-color: #d9363e;
 }
 
+
+
+
+
+.banner-slider {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 10px;
+  color: white;
+  max-width: 60%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+}
+
+/* Optional fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
