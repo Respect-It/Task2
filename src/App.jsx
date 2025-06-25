@@ -9,12 +9,12 @@ import Navbar from "./components/Navbar";
 import DetailPage from "./pages/DetailPage";
 import { createContext, useState } from "react";
 
-export const CountContext = createContext();
+export const CartContext = createContext();
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [cart, setCart] = useState([]);
   return (
     <>
-      <CountContext.Provider value={{ count, setCount }}>
+      <CartContext.Provider value={{ cart, setCart }}>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -25,7 +25,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </CountContext.Provider>
+      </CartContext.Provider>
     </>
   );
 }

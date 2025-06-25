@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { CountContext } from "../App";
 import { useContext } from "react";
+import { CartContext } from "../App";
 
-function Navbar () {
-  const {count, setCount}= useContext(CountContext)
+function Navbar() {
+  const { cart, setCart } = useContext(CartContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
 
-  return (  
+  return (
     <nav className="navbar">
       <Link to="/">
         <div className="navbar-logo">Mern Stack</div>
@@ -30,7 +30,9 @@ function Navbar () {
           )}
         </div>
 
-        <Link to="/cart"><i className="bi bi-cart"> {count}</i></Link>
+        <Link to="/cart">
+          <i className="bi bi-cart"> {cart.length}</i>
+        </Link>
       </div>
 
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
@@ -38,6 +40,6 @@ function Navbar () {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
