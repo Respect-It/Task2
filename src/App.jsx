@@ -8,7 +8,6 @@ import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import DetailPage from "./pages/DetailPage";
 import { createContext, useState } from "react";
-import Banner from "./components/Banner";
 
 export const CartContext = createContext();
 export default function App() {
@@ -18,7 +17,6 @@ export default function App() {
       <CartContext.Provider value={{ cart, setCart }}>
         <BrowserRouter>
           <Navbar />
-          <Banner/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About />} />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../App";
-import Banner from "./Banner";
+import DarkModeToggle from "./DarkModeToggle";
 
 function Navbar() {
   const { cart, setCart } = useContext(CartContext);
@@ -34,6 +34,7 @@ function Navbar() {
         <Link to="/cart">
           <i className="bi bi-cart"> {cart.length}</i>
         </Link>
+        <DarkModeToggle />
       </div>
 
       <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
@@ -41,6 +42,5 @@ function Navbar() {
       </div>
     </nav>
   );
-}
-<Banner/>
+};
 export default Navbar;
