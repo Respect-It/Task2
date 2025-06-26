@@ -488,9 +488,11 @@ body.dark-mode .card-content .content {
 }
 
 body.dark-mode .button {
-  background-color: #4bcce9;
+  background-color:rgba(247, 247, 247, 0.15);
   color: #000;
-}
+  border-radius: 50px
+  
+s}
 
 body.dark-mode .button:hover {
   background-color: #1e90ff;
