@@ -39,7 +39,7 @@ export default function Cards({ product }) {
 
         <div className="card-footer">
           <div className="rating-wrapper" aria-label={`Rating: ${product.rating.rate} out of 5`}>
-            <Rating readonly initialValue={product.rating.rate} allowFraction size={20} />
+            <Rating readonly={true}  initialValue={product.rating.rate} allowFraction={true} size={20} />
             <span className="rating-count">({product.rating.count})</span>
           </div>
 
