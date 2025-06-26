@@ -30,7 +30,7 @@ body {
    NAVBAR
 ===================================================== */
 .navbar {
-  background: rgba(240, 240, 240, 0.9);
+  background: transparent;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 1rem 2rem;
@@ -44,11 +44,9 @@ body {
 }
 
 .navbar-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  background: linear-gradient(45deg, #4bcce9, #d0d9e6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-links {
@@ -72,7 +70,7 @@ body {
   height: 2px;
   left: 0;
   bottom: -4px;
-  background-color: #61dafb;
+  background-color: #d4e3e7;
   transition: width 0.3s ease;
 }
 
@@ -81,7 +79,7 @@ body {
 }
 
 .navbar-links a:hover {
-  color: #61dafb;
+  color: #dae6e9;
 }
 
 /* =====================================================
@@ -182,63 +180,164 @@ body {
    CARD COMPONENT
 ===================================================== */
 .card {
-  background: linear-gradient(to right, #ffffff, #f0f0f0);
+  background: linear-gradient(135deg, #ffffffcc, #f0f0f0cc);
   max-width: 350px;
   margin: 20px auto;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-clip: padding-box;
+  backdrop-filter: blur(8px);
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.18),
+    0 6px 6px rgba(0, 0, 0, 0.12);
 }
 
-.card-image img {
-  object-fit: cover;
+.card-image-wrapper {
+  position: relative;
   width: 100%;
-  height: 200px;
+  height: 220px;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1);
 }
 
-.card-content {
-  padding: 10px;
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 20px 20px 0 0;
 }
 
-.card-content .content {
-  font-size: 1rem;
-  color: #000;
+.card:hover .card-image {
+  transform: scale(1.1);
 }
 
-.card-content .content time {
-  font-size: 0.75rem;
-  color: #9e9c9c;
+.card-body {
+  padding: 16px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.media-content {
-  text-align: justify;
+.card-title-link {
+  text-decoration: none;
+  color: #222;
+  transition: color 0.3s ease;
 }
 
-.media-content .title {
-  font-size: 1rem;
-  font-weight: bold;
+.card-title-link:hover {
+  color: #4bcce9;
+  text-decoration: underline;
 }
 
-.media-content .subtitle {
-  font-size: 0.875rem;
-  color: #5a5757;
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+
+  /* Truncate long titles to 3 lines */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.card-price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1e90ff;
+  margin-bottom: 12px;
+}
+
+.card-price span {
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #0a60c8;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  flex-grow: 1;
+
+  /* Truncate long descriptions to 3 lines */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffb400;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rating-count {
+  color: #666;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.btn-add-to-cart {
+  background: rgba(75, 204, 233, 0.85);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(75, 204, 233, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+  background: rgba(75, 204, 233, 1);
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(75, 204, 233, 0.7);
 }
 
 @media (max-width: 768px) {
   .card {
     max-width: 100%;
-    margin: 15px;
+    margin: 15px 10px;
   }
 
-  .card-image img {
+  .card-image-wrapper {
     height: 180px;
   }
 }
+
 
 /* =====================================================
    BUTTONS
@@ -466,56 +565,71 @@ body.dark-mode {
   color: #f0f0f0;
 }
 
+/* Navbar Background - softer with glass effect */
 body.dark-mode .navbar {
-  background: rgba(30, 30, 30, 0.9);
+  background: rgba(40, 40, 40, 0.75); /* lighter */
+  backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
 }
 
+/* Nav links and icons */
 body.dark-mode .navbar-links a,
 body.dark-mode .mobile-menu-icon {
-  color: #f0f0f0;
+  color: #f5f5f5;
 }
 
+/* Dropdown background with more transparency */
 body.dark-mode .dropdown-menu {
-  background: #1c1c1c;
+  background: rgba(50, 50, 50, 0.85);
 }
 
-body.dark-mode .dropdown-menu a {
-  color: #fff;
-}
-
+/* Dropdown hover with accent glow */
 body.dark-mode .dropdown-menu a:hover {
-  background-color: #333;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #4bcce9;
+  text-shadow: 0 0 2px #4bcce9;
 }
 
+/* Card background with subtle gradient */
 body.dark-mode .card {
-  background: linear-gradient(to right, #2a2a2a, #1e1e1e);
+  background: linear-gradient(to right, #2d2d2d, #1b1b1b);
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05);
 }
 
+/* Card text */
 body.dark-mode .media-content {
   color: #ffffff;
 }
 
 body.dark-mode .media-content .subtitle {
-  color: #c0c0c0;
+  color: #bbbbbb;
 }
 
 body.dark-mode .card-content .content {
-  color: #dddddd;
+  color: #eeeeee;
 }
 
+/* 🔘 Theme Button — engaging + circular feel */
 body.dark-mode .button {
-  background-color: rgba(247, 247, 247, 0.15);
-  color: #fff;
+  background-color: rgba(75, 204, 233, 0.15);
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(75, 204, 233, 0.25);
 }
 
+/* Button hover — brighter, glowy effect */
 body.dark-mode .button:hover {
-  background-color: #faeaea;
-  color: #000;
+  background-color: rgba(75, 204, 233, 0.3);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(75, 204, 233, 0.3);
+  transform: scale(1.05);
 }
 
+/* Not found page bg — polished */
 body.dark-mode .notfound-container {
-  background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
 }
- 

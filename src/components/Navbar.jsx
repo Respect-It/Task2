@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router";
-import { useContext } from "react";
 import { CartContext } from "../App";
 import DarkModeToggle from "./DarkModeToggle";
+import logo from "../assets/logo.png"; // ✅ Import the logo
 
 function Navbar() {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -15,13 +15,13 @@ function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/">
-        <div className="navbar-logo">Mern Stack</div>
+        <img src={logo} alt="Shopify Logo" className="navbar-logo" />
       </Link>
       <div className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
         <Link to="/about">About</Link>
 
         <div className="dropdown" onClick={toggleDropdown}>
-          <span className="dropdown-toggle">Products </span>
+          <span className="dropdown-toggle">Products</span>
           {isDropdownOpen && (
             <div className="dropdown-menu">
               <Link to="/Men's Product">Men's Product</Link>
@@ -42,5 +42,6 @@ function Navbar() {
       </div>
     </nav>
   );
-};
+}
+
 export default Navbar;

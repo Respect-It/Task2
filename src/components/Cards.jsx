@@ -1,68 +1,51 @@
-import { useState } from "react";
-import { Link } from "react-router-dom"; // Note: Changed 'react-router' to 'react-router-dom'
-import { Rating } from "react-simple-star-rating";
-import Products from "../pages/Products";
-import { CartContext } from "../App.jsx";
 import { useContext } from "react";
-export default function Cards(props) {
+import { Link } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
+import { CartContext } from "../App.jsx";
+
+export default function Cards({ product }) {
   const { cart, setCart } = useContext(CartContext);
 
-  function truncateText(text, maxLength) {
-    if (text.length <= maxLength) return text;
-    return text.slice(0, maxLength) + "...";
-  }
-  const handleClick = (p) => {
-    const founditem = cart.find((i) => i.id  == p.id);
-    if (!founditem) {
-      setCart([...cart, p]);
+  const truncateText = (text, maxLength) =>
+    text.length <= maxLength ? text : text.slice(0, maxLength) + "...";
+
+  const handleAddToCart = () => {
+    if (!cart.some((item) => item.id === product.id)) {
+      setCart([...cart, product]);
     }
   };
+
   return (
     <div className="card">
-      <div className="card-image">
-        <figure className="image is-4by3">
-          <img src={props.product.image} alt="Placeholder image" />
-        </figure>
+      <div className="card-image-wrapper">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="card-image"
+          loading="lazy"
+        />
       </div>
-      <div className="card-content">
-        <div className="media">
-          <div className="media-left">
-            <figure className="image is-48x48">
-              <img src={props.product.image} alt="Placeholder image" />
-            </figure>
-          </div>
-          <div className="media-content">
-            <Link to={`/product/${props.product.id}`}>
-              <p className="title is-4">{props.product.title}</p>
-            </Link>
-            <p className="subtitle is-6"></p>
-            <br />
-            <strong>
-              <b>PKr. </b>
-              <b>{props.product.price}</b>
-            </strong>
-            <br />
-            <button
-              className="button"
-              onClick={() => handleClick(props.product)}
-            >
-              Add To Cart
-            </button>
-          </div>
-        </div>
 
-        <div className="content">
-          {truncateText(props.product.description, 100)}
-          <br />
-          <br />
-          <h4>
-            <b>Rating</b>
-          </h4>
-          <Rating
-            readonly={true}
-            allowFraction={true}
-            initialValue={props.product.rating.rate}
-          />
+      <div className="card-body">
+        <Link to={`/product/${product.id}`} className="card-title-link">
+          <h3 className="card-title">{product.title}</h3>
+        </Link>
+
+        <p className="card-price">
+          PKR <span>{product.price.toFixed(2)}</span>
+        </p>
+
+        <p className="card-description">{truncateText(product.description, 120)}</p>
+
+        <div className="card-footer">
+          <div className="rating-wrapper" aria-label={`Rating: ${product.rating.rate} out of 5`}>
+            <Rating readonly initialValue={product.rating.rate} allowFraction size={20} />
+            <span className="rating-count">({product.rating.count})</span>
+          </div>
+
+          <button className="btn-add-to-cart" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
