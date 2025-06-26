@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -17,8 +18,12 @@ const DarkModeToggle = () => {
   };
 
   return (
-    <button onClick={toggleDarkMode} className="button" style={{ width: 'fit-content', marginLeft: '1rem' }}>
-      {darkMode ? 'Light Mode' : 'Dark Mode'}
+    <button
+      onClick={toggleDarkMode}
+      className="theme-toggle-button"
+      title="Toggle dark mode"
+    >
+      {darkMode ? '🌙' : '☀️'}
     </button>
   );
 };
