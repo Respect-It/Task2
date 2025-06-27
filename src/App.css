@@ -1,78 +1,79 @@
-/* =====================================================
-    GLOBAL STYLES & RESETS
-===================================================== */
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato'); /* New font imports for 404 page */
-
+/* Variables for colors and dimensions */
 :root {
-  --primary-color: #007bff; /* Blue */
-  --secondary-color: #6c757d; /* Gray */
-  --success-color: #28a745; /* Green */
-  --danger-color: #dc3545; /* Red */
-  --warning-color: #ffc107; /* Yellow */
-  --info-color: #17a2b8; /* Cyan */
+  /* Brand Colors */
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
 
+  /* Light Mode Palette */
   --text-color-light: #333;
   --background-color-light: #f8f9fa;
   --card-background-light: #ffffff;
   --border-color-light: #dee2e6;
   --shadow-light: rgba(0, 0, 0, 0.1);
 
-  /* Dark Mode Variables */
+  /* Dark Mode Palette */
   --text-color-dark: #e0e0e0;
   --background-color-dark: #121212;
   --card-background-dark: #1e1e1e;
   --border-color-dark: #3a3a3a;
   --shadow-dark: rgba(255, 255, 255, 0.05);
 
-  --navbar-height: 90px; /* Adjust this if your navbar height changes */
+  /* Layout Dimensions */
+  --navbar-height: 90px;
 
-  /* 404 Specific Colors (mapped from SASS vars) */
+  /* 404 Page Specific Colors (Light Mode) */
   --404-white-light: #EDEDED;
   --404-gray-light: #BFC0C0;
   --404-dark-light: #585959;
   --404-light-background-light: #D3DEEA;
 
-  /* 404 Dark Mode Specific Colors (my interpretation) */
-  --404-white-dark: #2a2a2a; /* Darker ghost in dark mode */
-  --404-gray-dark: #4a4a4a; /* Darker border/shadow */
-  --404-dark-dark: #e0e0e0; /* Lighter text for dark mode */
-  --404-light-background-dark: #0f0f0f; /* Even darker background for 404 in dark mode */
+  /* 404 Page Specific Colors (Dark Mode) */
+  --404-white-dark: #2a2a2a;
+  --404-gray-dark: #4a4a4a;
+  --404-dark-dark: #e0e0e0;
+  --404-light-background-dark: #0f0f0f;
 
+  /* Font Families */
   --font-big: 'Abril Fatface', serif;
   --font-body: 'Lato', sans-serif;
 }
 
-/* Base styles for light mode */
+/* Base body styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  padding-top: 80px ;
   box-sizing: border-box;
   background-color: var(--background-color-light);
   color: var(--text-color-light);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode styles */
+/* Dark mode body styles */
 body.dark-mode {
   background-color: var(--background-color-dark);
   color: var(--text-color-dark);
 }
 
-/* Common link styles */
+/* Common link styling */
 a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
+/* Link hover effect */
 a:hover {
   color: var(--primary-color);
   text-decoration: underline;
 }
 
-/* Buttons */
-/* Combined and slightly adjusted button styles for consistency and better touch targets */
+/* Reusable button styles */
 .btn, .btn-primary, .add-to-cart-btn, .checkout-btn, .quantity-button, .go-home-btn, .search-btn, .overlay-btn {
   display: inline-flex;
   align-items: center;
@@ -84,26 +85,29 @@ a:hover {
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.3s ease;
-  white-space: nowrap; /* Prevent text wrapping */
-  text-decoration: none; /* Ensure no underlines on link-buttons */
+  white-space: nowrap;
+  text-decoration: none;
 }
 
+/* Primary button styles */
 .btn-primary, .add-to-cart-btn, .checkout-btn {
   background-color: var(--primary-color);
   color: #fff;
   border-color: var(--primary-color);
 }
 
+/* Primary button hover effect */
 .btn-primary:hover, .add-to-cart-btn:hover, .checkout-btn:hover {
-  background-color: #0056b3; /* Darker primary color */
+  background-color: #0056b3;
   border-color: #0056b3;
 }
 
+/* Primary button active state */
 .btn-primary:active, .add-to-cart-btn:active, .checkout-btn:active {
   transform: translateY(1px);
 }
 
-/* Input fields */
+/* Text and number input field styles */
 input[type="text"], input[type="number"] {
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--border-color-light);
@@ -113,6 +117,7 @@ input[type="text"], input[type="number"] {
   transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark mode input field styles */
 body.dark-mode input[type="text"],
 body.dark-mode input[type="number"] {
   border-color: var(--border-color-dark);
@@ -120,37 +125,32 @@ body.dark-mode input[type="number"] {
   color: var(--text-color-dark);
 }
 
+/* Input field focus state */
 input[type="text"]:focus, input[type="number"]:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Utility Classes */
+/* Center text alignment utility */
 .text-center {
   text-align: center;
 }
 
-/* =====================================================
-    LAYOUT WRAPPERS & NAVBAR FIX
-===================================================== */
-/* Main page content wrappers - push content down to avoid fixed navbar overlap */
+/* Page content wrappers padding for fixed navbar */
 .home-page-wrapper,
 .about-page-wrapper,
 .cart-container,
 .detail-container,
 .products-page-wrapper,
-/* Also ensure 404 page respects navbar if not handled by its own padding-top */
 #background {
-  padding-top: var(--navbar-height); /* Ensure content clears the navbar */
-  /* Add additional top padding for spacing below navbar */
   padding-top: calc(var(--navbar-height) + 2rem);
   padding-bottom: 2rem;
-  min-height: calc(100vh - var(--navbar-height)); /* Ensure pages take full height below navbar */
-  box-sizing: border-box; /* Crucial to include padding in height calculation */
+  min-height: calc(100vh - var(--navbar-height));
+  box-sizing: border-box;
 }
 
-/* General Container (similar to Bootstrap's .container) */
+/* Full-width container with padding */
 .container-fluid {
   width: 100%;
   padding-right: 15px;
@@ -159,58 +159,62 @@ input[type="text"]:focus, input[type="number"]:focus {
   margin-left: auto;
 }
 
-/* Responsive containers */
+/* Responsive fixed-width container */
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 100%; /* Default to full width for mobile-first */
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
 }
 
+/* Small screen container breakpoint */
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
   }
 }
+/* Medium screen container breakpoint */
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
   }
 }
+/* Large screen container breakpoint */
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
   }
 }
+/* Extra large screen container breakpoint */
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
   }
 }
 
-/* Grid Row */
+/* Flexbox grid row */
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px; /* Compensate for column padding */
-  margin-left: -15px; /* Compensate for column padding */
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
-/* Grid Columns (Simplified Bootstrap-like) */
+/* Grid column base styles */
 [class*="col-"] {
   padding-right: 15px;
   padding-left: 15px;
   box-sizing: border-box;
 }
 
-/* Extra Small Devices (xs) - Default for mobile first */
+/* Extra small device column (full width) */
 .col-xs-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
-/* Small Devices (sm) */
+/* Small device column widths */
 @media (min-width: 576px) {
   .col-sm-6 {
     flex: 0 0 50%;
@@ -222,7 +226,7 @@ input[type="text"]:focus, input[type="number"]:focus {
   }
 }
 
-/* Medium Devices (md) */
+/* Medium device column widths */
 @media (min-width: 768px) {
   .col-md-4 {
     flex: 0 0 33.333333%;
@@ -238,46 +242,49 @@ input[type="text"]:focus, input[type="number"]:focus {
   }
 }
 
-/* =====================================================
-    NAVBAR (FROM Navbar.jsx)
-===================================================== */
+/* Main navigation bar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1030; /* Higher than other content */
+  z-index: 1030;
   background-color: var(--card-background-light);
   box-shadow: 0 2px 4px var(--shadow-light);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--navbar-height); /* Explicit height for calculations */
+  height: var(--navbar-height);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Dark mode navigation bar */
 body.dark-mode .navbar {
   background-color: var(--card-background-dark);
   box-shadow: 0 2px 4px var(--shadow-dark);
 }
 
+/* Navigation bar logo container */
 .navbar-logo {
   display: flex;
   align-items: center;
 }
 
+/* Navigation bar logo image */
 .navbar-logo-img {
-  height: 65px; /* Adjust logo size */
+  height: 65px;
   transition: transform 0.3s ease;
 }
 
+/* Navigation bar logo image hover effect */
 .navbar-logo-img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
+/* Mobile navigation toggler button */
 .navbar-toggler {
-  display: none; /* Hidden by default on larger screens */
+  display: none;
   background: none;
   border: none;
   font-size: 1.8rem;
@@ -286,34 +293,40 @@ body.dark-mode .navbar {
   transition: color 0.3s ease;
 }
 
+/* Dark mode mobile navigation toggler */
 body.dark-mode .navbar-toggler {
   color: var(--text-color-dark);
 }
 
-.navbar-toggler i.bi { /* Bootstrap Icons */
+/* Navigation toggler icon styling */
+.navbar-toggler i.bi {
   font-size: 2rem;
 }
 
+/* Navigation bar collapsible content */
 .navbar-collapse {
   display: flex;
   flex-grow: 1;
-  justify-content: flex-end; /* Push nav items to the right */
+  justify-content: flex-end;
   align-items: center;
 }
 
+/* Navigation list */
 .navbar-nav {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center; /* Align items vertically */
+  align-items: center;
 }
 
+/* Individual navigation item */
 .nav-item {
   margin-left: 1.5rem;
-  position: relative; /* For dropdown positioning */
+  position: relative;
 }
 
+/* Navigation link styling */
 .nav-link {
   color: var(--text-color-light);
   font-weight: 500;
@@ -321,14 +334,17 @@ body.dark-mode .navbar-toggler {
   transition: color 0.2s ease;
 }
 
+/* Dark mode navigation link */
 body.dark-mode .nav-link {
   color: var(--text-color-dark);
 }
 
+/* Navigation link hover effect */
 .nav-link:hover {
   color: var(--primary-color);
 }
 
+/* Dropdown toggle arrow */
 .nav-link.dropdown-toggle::after {
   content: ' ';
   display: inline-block;
@@ -342,12 +358,12 @@ body.dark-mode .nav-link {
   transition: transform 0.3s ease;
 }
 
+/* Dropdown toggle arrow rotated when expanded */
 .nav-item.dropdown .nav-link.dropdown-toggle[aria-expanded="true"]::after {
   transform: rotate(180deg);
 }
 
-
-/* Cart count badge */
+/* Shopping cart item count badge */
 .cart-count {
   background-color: var(--danger-color);
   color: white;
@@ -362,11 +378,11 @@ body.dark-mode .nav-link {
   line-height: 1;
 }
 
-/* Dropdown Menu */
+/* Dropdown menu container */
 .dropdown-menu {
-  display: none; /* Controlled by React state */
+  display: none;
   position: absolute;
-  top: 100%; /* Position below the toggle */
+  top: 100%;
   left: 0;
   min-width: 160px;
   background-color: var(--card-background-light);
@@ -380,16 +396,19 @@ body.dark-mode .nav-link {
   flex-direction: column;
 }
 
+/* Dark mode dropdown menu */
 body.dark-mode .dropdown-menu {
   background-color: var(--card-background-dark);
   box-shadow: 0 0.5rem 1rem var(--shadow-dark);
   border-color: var(--border-color-dark);
 }
 
+/* Show dropdown menu */
 .dropdown-menu.show {
-  display: flex; /* Show when 'show' class is applied */
+  display: flex;
 }
 
+/* Individual dropdown menu item */
 .dropdown-item {
   display: block;
   padding: 0.75rem 1.5rem;
@@ -403,29 +422,34 @@ body.dark-mode .dropdown-menu {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Dark mode dropdown item */
 body.dark-mode .dropdown-item {
   color: var(--text-color-dark);
 }
 
+/* Dropdown item hover effect */
 .dropdown-item:hover {
   background-color: var(--background-color-light);
   color: var(--primary-color);
 }
 
+/* Dark mode dropdown item hover effect */
 body.dark-mode .dropdown-item:hover {
   background-color: var(--background-color-dark);
   color: var(--primary-color);
 }
 
-/* Mobile Navbar Toggle (Hamburger) */
+/* Mobile navbar adjustments */
 @media (max-width: 991.98px) {
+  /* Show toggler button */
   .navbar-toggler {
-    display: block; /* Show on small screens */
+    display: block;
   }
 
+  /* Collapsible navbar content */
   .navbar-collapse {
     position: absolute;
-    top: var(--navbar-height); /* Position below the fixed navbar */
+    top: var(--navbar-height);
     left: 0;
     width: 100%;
     background-color: var(--card-background-light);
@@ -434,27 +458,31 @@ body.dark-mode .dropdown-item:hover {
     align-items: flex-start;
     padding: 1rem 0;
     transition: all 0.3s ease-in-out;
-    transform: translateY(-100%); /* Start hidden above */
+    transform: translateY(-100%);
     opacity: 0;
-    pointer-events: none; /* Disable interaction when hidden */
+    pointer-events: none;
   }
 
+  /* Dark mode collapsible navbar content */
   body.dark-mode .navbar-collapse {
     background-color: var(--card-background-dark);
     box-shadow: 0 0.5rem 1rem var(--shadow-dark);
   }
 
+  /* Show collapsible navbar */
   .navbar-collapse.show {
-    transform: translateY(0); /* Slide down when shown */
+    transform: translateY(0);
     opacity: 1;
-    pointer-events: all; /* Enable interaction */
+    pointer-events: all;
   }
 
+  /* Mobile navigation list */
   .navbar-nav {
     flex-direction: column;
     width: 100%;
   }
 
+  /* Mobile navigation item */
   .nav-item {
     margin-left: 0;
     width: 100%;
@@ -462,44 +490,45 @@ body.dark-mode .dropdown-item:hover {
     padding: 0.5rem 0;
   }
 
+  /* Mobile navigation link */
   .nav-link {
     display: block;
     padding: 0.75rem 1rem;
     width: 100%;
   }
 
+  /* Mobile dropdown toggle arrow */
   .nav-link.dropdown-toggle::after {
     margin-left: auto;
     margin-right: 1rem;
     vertical-align: middle;
   }
 
+  /* Mobile dropdown menu */
   .dropdown-menu {
-    position: static; /* Stack dropdown items vertically in mobile menu */
+    position: static;
     width: 100%;
     box-shadow: none;
     border: none;
     border-radius: 0;
     margin-top: 0;
     padding: 0;
-    background-color: rgba(var(--text-color-light), 0.05); /* Slightly different background for dropdown items in mobile */
+    background-color: rgba(var(--text-color-light), 0.05);
   }
 
+  /* Dark mode mobile dropdown menu */
   body.dark-mode .dropdown-menu {
     background-color: rgba(var(--text-color-dark), 0.05);
   }
 }
 
-
-/* =====================================================
-    DARK MODE TOGGLE (FROM DarkModeToggle.jsx)
-===================================================== */
+/* Dark mode toggle button */
 .theme-toggle-button {
   background: none;
   border: none;
-  font-size: 1.5rem; /* Increased size for better touch target */
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0.3rem; /* Increased padding */
+  padding: 0.3rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -507,118 +536,128 @@ body.dark-mode .dropdown-item:hover {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Dark mode toggle button hover effect */
 .theme-toggle-button:hover {
-  background-color: rgba(0, 0, 0, 0.08); /* Slightly darker hover */
+  background-color: rgba(0, 0, 0, 0.08);
   transform: scale(1.05);
 }
 
+/* Dark mode toggle button hover effect in dark mode */
 body.dark-mode .theme-toggle-button:hover {
-  background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter hover for dark mode */
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* Dark mode toggle button active state */
 .theme-toggle-button:active {
   transform: scale(0.95);
 }
 
-
-/* =====================================================
-    CARDS (FROM Cards.jsx) - UPDATED FOR INTERACTIVE HOVER
-===================================================== */
+/* Product grid section container */
 .product-grid-section {
-    padding: 1rem;
-    max-width: 1200px; /* Limit width of grid for better readability */
-    margin: 0 auto; /* Center the grid */
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Product card column layout */
 .product-card-column {
-    display: flex; /* Ensure card takes full height of column */
-    padding-bottom: 2rem; /* Spacing between rows */
+  display: flex;
+  padding-bottom: 2rem;
 }
 
-/* Updated Card Styling */
+/* Individual product card */
 .product-card {
   border: 1px solid var(--border-color-light);
   border-radius: 0.75rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 100%; /* Take full width of its column */
+  width: 100%;
   background-color: var(--card-background-light);
   box-shadow: 0 4px 8px var(--shadow-light);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
-  position: relative; /* Needed for positioning the info button */
-  min-height: 400px; /* Ensure a consistent minimum height for better layout */
+  position: relative;
+  min-height: 400px;
 }
 
+/* Dark mode product card */
 body.dark-mode .product-card {
   background-color: var(--card-background-dark);
   border-color: var(--border-color-dark);
   box-shadow: 0 4px 8px var(--shadow-dark);
 }
 
+/* Product card hover effect */
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px var(--shadow-light);
 }
 
+/* Dark mode product card hover effect */
 body.dark-mode .product-card:hover {
   box-shadow: 0 6px 12px var(--shadow-dark);
 }
 
-/* Image Container and Overlay */
+/* Product card image container */
 .product-card-image-container {
   position: relative;
   width: 100%;
-  padding-bottom: 120%; /* For vertical image aspect ratio (e.g., 4:5). Adjust as needed. */
+  padding-bottom: 120%;
   overflow: hidden;
-  cursor: pointer; /* Indicate it's clickable */
-  background-color: #f8f8f8; /* Light background for the image area */
+  cursor: pointer;
+  background-color: #f8f8f8;
   border-bottom: 1px solid var(--border-color-light);
 }
 
+/* Dark mode product card image container */
 body.dark-mode .product-card-image-container {
-  background-color: #2c2c2c; /* Dark background for the image area */
+  background-color: #2c2c2c;
   border-color: var(--border-color-dark);
 }
 
+/* Product card image */
 .product-card-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the image covers the area without distortion, use 'cover' if you want it to fill completely */
+  object-fit: contain;
   display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for image */
+  transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 1;
 }
 
+/* Product card image hover effect */
 .product-card-image-container:hover .product-card-image {
   transform: scale(1.05);
-  opacity: 0.3; /* Slightly fade image on hover */
+  opacity: 0.3;
 }
 
+/* Product card overlay for actions */
 .product-card-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  opacity: 0; /* Hidden by default */
+  opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  z-index: 2; /* Ensure overlay is above the faded image */
+  z-index: 2;
 }
 
+/* Product card overlay hover effect */
 .product-card-image-container:hover .product-card-overlay {
-  opacity: 1; /* Show on hover */
+  opacity: 1;
 }
 
+/* Overlay button styling */
 .overlay-button {
   background-color: var(--primary-color);
   color: white;
@@ -628,64 +667,68 @@ body.dark-mode .product-card-image-container {
   cursor: pointer;
   font-size: 0.9em;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  width: 80%; /* Make buttons take up most of the overlay width */
+  width: 80%;
   text-align: center;
 }
 
+/* Overlay button hover effect */
 .overlay-button:hover {
-  background-color: #0056b3; /* Darker primary color */
+  background-color: #0056b3;
   transform: translateY(-2px);
 }
 
+/* Wishlist button specific styling */
 .wishlist-button {
-  background-color: var(--success-color); /* Different color for wishlist */
+  background-color: var(--success-color);
 }
 
+/* Wishlist button hover effect */
 .wishlist-button:hover {
   background-color: #218838;
 }
 
-
-/* Info Button at the bottom (Price Tag / Details Popup) */
+/* Product card information button (price tag/details) */
 .product-card-info-button {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.75); /* Dark background for visibility */
+  background-color: rgba(0, 0, 0, 0.75);
   color: white;
   text-align: center;
   padding: 10px 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-  /* Removed transition for 'all' to prevent blinking on hover of popup */
-  transition: background-color 0.3s ease; /* Smooth transition for just background */
-  z-index: 10; /* Ensure it's above other content */
-  cursor: help; /* Indicate hover for info */
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  cursor: help;
 }
 
+/* Dark mode product card information button */
 body.dark-mode .product-card-info-button {
   background-color: rgba(30, 30, 30, 0.9);
 }
 
-
+/* Product card information button hover effect */
 .product-card-info-button:hover {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
+/* Dark mode product card information button hover effect */
 body.dark-mode .product-card-info-button:hover {
   background-color: rgba(30, 30, 30, 0.95);
 }
 
+/* Product card price tag text */
 .product-card-price-tag {
   font-weight: bold;
   font-size: 1.2em;
   color: white;
 }
 
-/* Details Popup for Price/Description on hover of .product-card-info-button */
+/* Product card details popup on hover */
 .product-card-details-popup {
   position: absolute;
-  bottom: 100%; /* Position above the info button */
+  bottom: 100%;
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.9);
@@ -694,26 +737,27 @@ body.dark-mode .product-card-info-button:hover {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
-  /* Control visibility with opacity and pointer-events for smooth hover */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 11; /* Above the info button itself */
-  pointer-events: none; /* Allows interaction with elements behind it when hidden */
-  text-align: left; /* Align text within the popup */
+  z-index: 11;
+  pointer-events: none;
+  text-align: left;
 }
 
+/* Dark mode product card details popup */
 body.dark-mode .product-card-details-popup {
   background-color: rgba(10, 10, 10, 0.95);
 }
 
-/* Show the popup when hovering over the info button */
+/* Show product card details popup on info button hover */
 .product-card-info-button:hover .product-card-details-popup {
   opacity: 1;
   visibility: visible;
-  pointer-events: all; /* Enable interaction when visible */
+  pointer-events: all;
 }
 
+/* Details popup title */
 .details-popup-title {
   font-size: 1.1em;
   margin-bottom: 8px;
@@ -721,6 +765,7 @@ body.dark-mode .product-card-details-popup {
   color: var(--primary-color);
 }
 
+/* Details popup price */
 .details-popup-price {
   font-size: 1em;
   margin-bottom: 8px;
@@ -728,98 +773,85 @@ body.dark-mode .product-card-details-popup {
   font-weight: bold;
 }
 
+/* Details popup description */
 .details-popup-description {
   font-size: 0.9em;
   line-height: 1.4;
   color: #ccc;
-  word-wrap: break-word; /* Ensure long descriptions wrap */
-  overflow: hidden; /* Hide overflow if it still goes too long */
-  text-overflow: ellipsis; /* Add ellipsis for clipped text */
-  max-height: 4.2em; /* Limit to 3 lines (assuming 1.4em line-height) */
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 4.2em;
 }
 
-/* Card Footer (Below Image Container and Info Button) */
+/* Product card footer content area */
 .product-card-footer {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allows it to take remaining space */
-  /* Remove justify-content: flex-end; as it pushes content down into conflict */
-  position: relative; /* Keep relative for general positioning context */
-  z-index: 9; /* Ensure it's below the info button but above other background */
+  flex-grow: 1;
+  position: relative;
+  z-index: 9;
   background-color: var(--card-background-light);
 }
 
+/* Dark mode product card footer */
 body.dark-mode .product-card-footer {
   background-color: var(--card-background-dark);
 }
 
+/* Product card title link */
 .product-card-title-link {
   text-decoration: none;
   color: var(--text-color-light);
-  margin-bottom: 10px; /* Space between title and rating */
-  display: block; /* Ensure link takes full line */
+  margin-bottom: 10px;
+  display: block;
 }
 
+/* Dark mode product card title link */
 body.dark-mode .product-card-title-link {
   color: var(--text-color-dark);
 }
 
+/* Product card title link hover effect */
 .product-card-title-link:hover {
   color: var(--primary-color);
 }
 
+/* Product card title text */
 .product-card-title {
   font-size: 1.2em;
   font-weight: 600;
   line-height: 1.3;
-  margin: 0; /* Remove default h3 margin */
+  margin: 0;
 }
 
+/* Product card rating display */
 .product-card-rating {
   display: flex;
   align-items: center;
   gap: 5px;
   font-size: 0.9em;
   color: var(--secondary-color);
-  /* The key change: add margin-bottom to push it above the price tag area */
-  margin-bottom: 50px; /* Adjust this value as needed. It pushes the rating up, creating space for the price tag */
-  /* Ensure z-index if it's still being covered, but proper flow usually fixes it */
+  margin-bottom: 50px;
   position: relative;
-  z-index: 20; /* Higher than info button's z-index (10) and popup (11) if they overlap the footer area */
+  z-index: 20;
 }
 
+/* Product card rating count text */
 .product-card-rating-count {
   font-size: 0.85em;
   color: var(--secondary-color);
 }
 
-/* IMPORTANT: Hide or remove old card elements now replaced by the overlay and new structure */
-/* The old .card class is renamed to .product-card, so these are redundant and could cause issues */
-/* You should remove them from your JSX if you truly replaced them. */
-/* This section is kept for *reference* but should ideally not be in your final CSS if you removed the elements from JSX */
-.card-image-wrapper, /* This is now product-card-image-container, but keeping just in case old JSX is not fully removed */
-.card-body,
-.card-footer,
-.card-title-link,
-.card-price,
-.card-description,
-.rating-wrapper,
-.btn-add-to-cart {
-    /* display: none; */ /* If you intend to completely remove these old elements from JSX, you don't need this */
-    /* If you still have them in JSX but want them hidden, keep this. */
-}
-
-
-/* =====================================================
-    ABOUT PAGE (FROM About.jsx)
-===================================================== */
+/* About page wrapper */
 .about-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
+/* About page hero section */
 .about-hero {
   background-color: var(--primary-color);
   color: white;
@@ -830,18 +862,21 @@ body.dark-mode .product-card-title-link {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* About hero main title */
 .about-hero .main-title {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* About hero tagline */
 .about-hero .hero-tagline {
   font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto;
 }
 
+/* About section layout */
 .about-section {
   display: flex;
   flex-wrap: wrap;
@@ -854,22 +889,26 @@ body.dark-mode .product-card-title-link {
   box-shadow: 0 2px 10px var(--shadow-light);
 }
 
+/* Dark mode about section */
 body.dark-mode .about-section {
   background-color: var(--card-background-dark);
   box-shadow: 0 2px 10px var(--shadow-dark);
 }
 
+/* About section heading */
 .about-section h2 {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
 }
 
+/* About section content area */
 .about-content-area, .about-image-area {
   flex: 1;
-  min-width: 300px; /* Ensures stacking on smaller screens */
+  min-width: 300px;
 }
 
+/* About section image */
 .about-image {
   max-width: 100%;
   height: auto;
@@ -877,20 +916,23 @@ body.dark-mode .about-section {
   box-shadow: 0 4px 8px var(--shadow-light);
 }
 
+/* Dark mode about section image */
 body.dark-mode .about-image {
-    box-shadow: 0 4px 8px var(--shadow-dark);
+  box-shadow: 0 4px 8px var(--shadow-dark);
 }
 
-/* Reverse layout for alternating sections */
+/* Reversed layout for about sections */
 .about-section.reversed-layout {
   flex-direction: row-reverse;
 }
 
+/* About values list */
 .about-our-values ul {
   list-style: none;
   padding: 0;
 }
 
+/* About values list item */
 .about-our-values li {
   background-color: var(--background-color-light);
   padding: 1rem;
@@ -901,24 +943,29 @@ body.dark-mode .about-image {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Dark mode about values list item */
 body.dark-mode .about-our-values li {
   background-color: var(--background-color-dark);
   box-shadow: 0 1px 3px var(--shadow-dark);
 }
 
+/* About values list item hover effect */
 .about-our-values li:hover {
-  background-color: #e9ecef; /* Slightly darker background on hover */
-  border-color: #0056b3; /* Darker primary color */
+  background-color: #e9ecef;
+  border-color: #0056b3;
 }
 
+/* Dark mode about values list item hover effect */
 body.dark-mode .about-our-values li:hover {
   background-color: #2e2e2e;
 }
 
+/* About values list item strong text */
 .about-our-values li strong {
   color: var(--primary-color);
 }
 
+/* About call to action section */
 .about-call-to-action {
   text-align: center;
   background-color: var(--info-color);
@@ -929,11 +976,13 @@ body.dark-mode .about-our-values li:hover {
   margin-bottom: 0;
 }
 
+/* About call to action heading */
 .about-call-to-action h2 {
   color: white;
   margin-bottom: 1rem;
 }
 
+/* About call to action paragraph */
 .about-call-to-action p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
@@ -942,25 +991,26 @@ body.dark-mode .about-our-values li:hover {
   margin-right: auto;
 }
 
-/* Responsive adjustments for About Page */
+/* Responsive adjustments for about page */
 @media (max-width: 768px) {
+  /* About hero title font size */
   .about-hero .main-title {
     font-size: 2.5rem;
   }
+  /* About section flex direction and alignment */
   .about-section, .about-section.reversed-layout {
     flex-direction: column;
-    align-items: center; /* Center items when stacked */
+    align-items: center;
     text-align: center;
   }
+  /* About content and image area width */
   .about-content-area, .about-image-area {
     min-width: unset;
     width: 100%;
   }
 }
 
-/* =====================================================
-    CART PAGE (FROM Cart.jsx)
-===================================================== */
+/* Cart page main container */
 .cart-container {
   max-width: 900px;
   margin: 0 auto;
@@ -970,11 +1020,13 @@ body.dark-mode .about-our-values li:hover {
   box-shadow: 0 4px 15px var(--shadow-light);
 }
 
+/* Dark mode cart page container */
 body.dark-mode .cart-container {
   background-color: var(--card-background-dark);
   box-shadow: 0 4px 15px var(--shadow-dark);
 }
 
+/* Cart page header */
 .cart-header {
   text-align: center;
   font-size: 2.5rem;
@@ -982,6 +1034,7 @@ body.dark-mode .cart-container {
   color: var(--primary-color);
 }
 
+/* Empty cart message */
 .empty-cart-message {
   text-align: center;
   font-size: 1.2rem;
@@ -989,15 +1042,18 @@ body.dark-mode .cart-container {
   padding: 3rem 0;
 }
 
+/* Cart items list */
 .cart-items {
   border-top: 1px solid var(--border-color-light);
   padding-top: 1rem;
 }
 
+/* Dark mode cart items list */
 body.dark-mode .cart-items {
   border-color: var(--border-color-dark);
 }
 
+/* Individual cart item */
 .cart-item {
   display: flex;
   align-items: center;
@@ -1006,14 +1062,17 @@ body.dark-mode .cart-items {
   border-bottom: 1px solid var(--border-color-light);
 }
 
+/* Dark mode individual cart item */
 body.dark-mode .cart-item {
   border-color: var(--border-color-dark);
 }
 
+/* Last cart item no bottom border */
 .cart-item:last-child {
   border-bottom: none;
 }
 
+/* Cart item image container */
 .cart-item-image {
   width: 100px;
   height: 100px;
@@ -1022,45 +1081,53 @@ body.dark-mode .cart-item {
   justify-content: center;
   overflow: hidden;
   border-radius: 0.5rem;
-  background-color: #f0f0f0; /* Light background for image area */
+  background-color: #f0f0f0;
 }
 
+/* Dark mode cart item image container */
 body.dark-mode .cart-item-image {
-    background-color: var(--background-color-dark);
+  background-color: var(--background-color-dark);
 }
 
+/* Cart item image */
 .cart-item-image img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
+/* Cart item details section */
 .item-details {
-  flex-grow: 1; /* Take up remaining space */
+  flex-grow: 1;
 }
 
+/* Cart item details title */
 .item-details h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
   color: var(--text-color-light);
 }
 
+/* Dark mode cart item details title */
 body.dark-mode .item-details h4 {
   color: var(--text-color-dark);
 }
 
+/* Cart item price */
 .item-price {
   font-weight: bold;
   color: var(--primary-color);
   margin-bottom: 0.75rem;
 }
 
+/* Quantity control buttons and input */
 .quantity-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Quantity adjustment button */
 .quantity-button {
   background-color: var(--secondary-color);
   color: white;
@@ -1076,10 +1143,12 @@ body.dark-mode .item-details h4 {
   transition: background-color 0.2s ease;
 }
 
+/* Quantity button hover effect */
 .quantity-button:hover {
-  background-color: #5a6268; /* Darker secondary */
+  background-color: #5a6268;
 }
 
+/* Quantity input field */
 .quantity-input {
   width: 50px;
   text-align: center;
@@ -1087,15 +1156,17 @@ body.dark-mode .item-details h4 {
   border: 1px solid var(--border-color-light);
   border-radius: 0.25rem;
   font-size: 1rem;
-  -moz-appearance: textfield; /* Hide arrows in Firefox */
+  -moz-appearance: textfield;
 }
 
+/* Hide spin buttons for quantity input in WebKit browsers */
 .quantity-input::-webkit-outer-spin-button,
 .quantity-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
+/* Delete item button */
 .delete-button {
   background-color: var(--danger-color);
   color: white;
@@ -1107,10 +1178,12 @@ body.dark-mode .item-details h4 {
   transition: background-color 0.2s ease;
 }
 
+/* Delete button hover effect */
 .delete-button:hover {
-  background-color: #c82333; /* Darker danger */
+  background-color: #c82333;
 }
 
+/* Cart summary section */
 .cart-summary {
   background-color: var(--background-color-light);
   border: 1px solid var(--border-color-light);
@@ -1120,12 +1193,14 @@ body.dark-mode .item-details h4 {
   box-shadow: 0 2px 5px var(--shadow-light);
 }
 
+/* Dark mode cart summary */
 body.dark-mode .cart-summary {
   background-color: var(--background-color-dark);
   border-color: var(--border-color-dark);
   box-shadow: 0 2px 5px var(--shadow-dark);
 }
 
+/* Summary row in cart summary */
 .summary-row {
   display: flex;
   justify-content: space-between;
@@ -1133,14 +1208,17 @@ body.dark-mode .cart-summary {
   border-bottom: 1px dashed var(--border-color-light);
 }
 
+/* Dark mode summary row */
 body.dark-mode .summary-row {
   border-color: var(--border-color-dark);
 }
 
+/* Last summary row no bottom border */
 .summary-row:last-of-type {
   border-bottom: none;
 }
 
+/* Total row in cart summary */
 .summary-row.total {
   font-size: 1.3rem;
   font-weight: bold;
@@ -1150,6 +1228,7 @@ body.dark-mode .summary-row {
   padding-top: 1rem;
 }
 
+/* Checkout button styling */
 .checkout-btn {
   width: 100%;
   margin-top: 1.5rem;
@@ -1157,6 +1236,7 @@ body.dark-mode .summary-row {
   font-size: 1.1rem;
 }
 
+/* Cart page footer */
 .cart-footer {
   text-align: center;
   margin-top: 2rem;
@@ -1164,57 +1244,61 @@ body.dark-mode .summary-row {
   color: var(--secondary-color);
 }
 
-/* Responsive adjustments for Cart Page */
+/* Responsive adjustments for cart page */
 @media (max-width: 768px) {
+  /* Cart item flex direction and alignment */
   .cart-item {
     flex-direction: column;
     align-items: flex-start;
     text-align: center;
   }
+  /* Cart item image size and centering */
   .cart-item-image {
     width: 80px;
     height: 80px;
-    margin: 0 auto 0.5rem auto; /* Center image on small screens */
+    margin: 0 auto 0.5rem auto;
   }
+  /* Item details width and text alignment */
   .item-details {
     width: 100%;
     text-align: center;
   }
+  /* Quantity controls centering */
   .quantity-controls {
-    justify-content: center; /* Center quantity controls */
+    justify-content: center;
     width: 100%;
   }
+  /* Delete button width and margin */
   .delete-button {
     width: 100%;
     margin-top: 1rem;
   }
 }
 
-
-/* =====================================================
-    DETAIL PAGE (FROM DetailPage.jsx)
-===================================================== */
+/* Product detail page container */
 .detail-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping for responsiveness */
-  gap: 2.5rem; /* Spacing between image and details */
+  flex-wrap: wrap;
+  gap: 2.5rem;
   background-color: var(--card-background-light);
   border-radius: 0.75rem;
   box-shadow: 0 4px 15px var(--shadow-light);
 }
 
+/* Dark mode product detail page container */
 body.dark-mode .detail-container {
   background-color: var(--card-background-dark);
   box-shadow: 0 4px 15px var(--shadow-dark);
 }
 
+/* Product image wrapper on detail page */
 .product-image-wrapper {
-  flex: 1; /* Allow to grow */
-  min-width: 300px; /* Minimum width before wrapping */
-  max-width: 500px; /* Max width to prevent image from getting too large */
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1224,34 +1308,40 @@ body.dark-mode .detail-container {
   padding: 1.5rem;
 }
 
+/* Dark mode product image wrapper */
 body.dark-mode .product-image-wrapper {
-    background-color: var(--background-color-dark);
+  background-color: var(--background-color-dark);
 }
 
+/* Product image on detail page */
 .detail-product-image {
   max-width: 100%;
-  max-height: 400px; /* Limit image height */
+  max-height: 400px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
+/* Product image hover effect on detail page */
 .product-image-wrapper:hover .detail-product-image {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
+/* Product information section on detail page */
 .detail-product-info {
-  flex: 1.5; /* Allow to take more space than image */
-  min-width: 350px; /* Minimum width before wrapping */
+  flex: 1.5;
+  min-width: 350px;
   display: flex;
   flex-direction: column;
 }
 
+/* Product title on detail page */
 .detail-product-title {
   font-size: 2.2rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
+/* Product description on detail page */
 .detail-product-description {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -1259,45 +1349,51 @@ body.dark-mode .product-image-wrapper {
   color: var(--text-color-light);
 }
 
+/* Dark mode product description on detail page */
 body.dark-mode .detail-product-description {
   color: var(--text-color-dark);
 }
 
+/* Product price on detail page */
 .detail-product-price {
   font-size: 2rem;
   font-weight: 700;
   color: var(--success-color);
   margin-bottom: 2rem;
-  display: block; /* Ensure it takes its own line */
+  display: block;
 }
 
+/* Product actions (buttons) on detail page */
 .detail-product-actions {
   display: flex;
-  flex-wrap: wrap; /* Allow buttons to wrap */
+  flex-wrap: wrap;
   align-items: center;
   gap: 1.5rem;
-  margin-top: auto; /* Push actions to bottom */
+  margin-top: auto;
 }
 
+/* Add to cart button on detail page */
 .add-to-cart-btn {
   padding: 1rem 2rem;
   font-size: 1.1rem;
-  flex-grow: 1; /* Allow button to grow */
+  flex-grow: 1;
   min-width: 180px;
 }
 
+/* Product rating on detail page */
 .detail-product-rating {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Rating count on detail page */
 .detail-product-rating .rating-count {
   font-size: 0.9rem;
   color: var(--secondary-color);
 }
 
-/* Product Not Found styles */
+/* No product found message container */
 .detail-container.no-product-found {
   display: flex;
   flex-direction: column;
@@ -1307,65 +1403,72 @@ body.dark-mode .detail-product-description {
   min-height: 50vh;
 }
 
+/* No product found title */
 .not-found-title {
   font-size: 3rem;
   color: var(--danger-color);
   margin-bottom: 1rem;
 }
 
+/* Not found message on detail page */
 .not-found-message {
   font-size: 1.2rem;
   color: var(--text-color-light);
   margin-bottom: 2rem;
 }
 
+/* Dark mode not found message */
 body.dark-mode .not-found-message {
-    color: var(--text-color-dark);
+  color: var(--text-color-dark);
 }
 
+/* Go home button styling */
 .go-home-btn {
   padding: 1rem 2rem;
   font-size: 1.1rem;
 }
 
-/* Responsive adjustments for Detail Page */
+/* Responsive adjustments for detail page */
 @media (max-width: 991.98px) {
+  /* Detail container layout for smaller screens */
   .detail-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+  /* Product image wrapper width for smaller screens */
   .product-image-wrapper {
     max-width: 100%;
     width: 100%;
   }
+  /* Product info section width for smaller screens */
   .detail-product-info {
     min-width: unset;
     width: 100%;
   }
+  /* Product actions alignment for smaller screens */
   .detail-product-actions {
     justify-content: center;
   }
 }
 
-
-/* =====================================================
-    PRODUCTS PAGE (FROM Products.jsx)
-===================================================== */
+/* Products page main wrapper */
 .products-page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
+/* Products page title */
 .products-page-title {
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 2.5rem;
   color: var(--primary-color);
-  text-transform: capitalize; /* Capitalize category names */
+  text-transform: capitalize;
 }
 
+/* Message for no products found */
 .no-products-message {
   text-align: center;
   font-size: 1.2rem;
@@ -1373,51 +1476,49 @@ body.dark-mode .not-found-message {
   padding: 3rem 0;
 }
 
-
-/* =====================================================
-    404 NOT FOUND PAGE (FROM NotFound404.jsx)
-===================================================== */
+/* 404 Not Found page background */
 #background {
-  /* This overrides the global body background for the 404 page */
   background: var(--404-light-background-light);
-  color: var(--404-dark-light); /* Dark text on light background */
+  color: var(--404-dark-light);
   text-align: center;
-  overflow: hidden; /* For ghost animation */
-  position: relative; /* For absolute positioning of elements */
-  display: flex; /* Ensure content is centered vertically */
+  overflow: hidden;
+  position: relative;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* min-height: 100vh; is already in the combined padding-top rule above */
-  /* padding-top: var(--navbar-height); is already in the combined padding-top rule above */
-  /* box-sizing: border-box; is already in the combined padding-top rule above */
 }
 
+/* Dark mode 404 Not Found page background */
 body.dark-mode #background {
   background: var(--404-light-background-dark);
-  color: var(--404-dark-dark); /* Light text on dark background */
+  color: var(--404-dark-dark);
 }
 
+/* Top section of 404 page */
 #background .top {
-  margin-top: 30px;
-  position: relative; /* Keep relative for z-index */
+  margin-top: 25px;
+  position: relative;
   z-index: 10;
 }
 
+/* H1 heading on 404 page */
 #background h1 {
   font-family: var(--font-big);
-  color: var(--404-white-light); /* White for light mode */
+  color: var(--404-white-light);
   text-align: center;
   font-size: 9em;
   margin: 0;
   text-shadow: -1px 0 var(--404-gray-light), 0 1px var(--404-gray-light), 1px 0 var(--404-gray-light), 0 -1px var(--404-gray-light);
 }
 
+/* Dark mode H1 heading on 404 page */
 body.dark-mode #background h1 {
-  color: var(--404-white-dark); /* Darker "white" for dark mode ghost */
+  color: var(--404-white-dark);
   text-shadow: -1px 0 var(--404-gray-dark), 0 1px var(--404-gray-dark), 1px 0 var(--404-gray-dark), 0 -1px var(--404-gray-dark);
 }
 
+/* H3 heading on 404 page */
 #background h3 {
   font-family: var(--font-body);
   font-size: 2em;
@@ -1428,10 +1529,12 @@ body.dark-mode #background h1 {
   font-weight: 900;
 }
 
+/* Dark mode H3 heading on 404 page */
 body.dark-mode #background h3 {
   color: var(--404-gray-dark);
 }
 
+/* Paragraph text on 404 page */
 #background p {
   text-align: center;
   font-family: var(--font-body);
@@ -1441,19 +1544,22 @@ body.dark-mode #background h3 {
   text-transform: uppercase;
 }
 
+/* Dark mode paragraph text on 404 page */
 body.dark-mode #background p {
   color: var(--404-dark-dark);
 }
 
+/* Container for ghost animation */
 .container {
   margin: 0 auto;
   position: relative;
   width: 250px;
   height: 250px;
   margin-top: -40px;
-  z-index: 5; /* Ghost elements inside container */
+  z-index: 5;
 }
 
+/* Ghost main body */
 .ghost {
   width: 50%;
   height: 53%;
@@ -1465,15 +1571,16 @@ body.dark-mode #background p {
   border: 1px solid var(--404-gray-light);
   border-bottom: none;
   animation: float 2s ease-out infinite;
-  z-index: 1; /* Ghost above ghost-copy if needed, or equal */
+  z-index: 1;
 }
 
+/* Dark mode ghost main body */
 body.dark-mode .ghost {
   background: var(--404-white-dark);
   border-color: var(--404-gray-dark);
 }
 
-/* Ghost copies - the "feet" of the ghost */
+/* Ghost copies (feet) */
 .ghost-copy {
   width: 50%;
   height: 53%;
@@ -1485,15 +1592,16 @@ body.dark-mode .ghost {
   border: 1px solid var(--404-gray-light);
   border-bottom: none;
   animation: float 2s ease-out infinite;
-  /* Additional styling for the "feet" part, creating the wavy bottom */
-  z-index: 0; /* Ensure ghost body is above this */
+  z-index: 0;
 }
 
+/* Dark mode ghost copies */
 body.dark-mode .ghost-copy {
   background: var(--404-white-dark);
   border-color: var(--404-gray-dark);
 }
 
+/* Ghost feet pseudo-elements */
 .ghost-copy::before, .ghost-copy::after {
   content: '';
   background: var(--404-white-light);
@@ -1507,26 +1615,31 @@ body.dark-mode .ghost-copy {
   border-right: none;
 }
 
+/* Dark mode ghost feet pseudo-elements */
 body.dark-mode .ghost-copy::before, body.dark-mode .ghost-copy::after {
   background: var(--404-white-dark);
   border-color: var(--404-gray-dark);
 }
 
+/* Left ghost foot */
 .ghost-copy::before {
   left: -12%;
 }
 
+/* Right ghost foot */
 .ghost-copy::after {
   transform: rotate(-45deg);
   right: -12%;
 }
 
+/* Ghost face container */
 .ghost .face {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
+/* Ghost eye */
 .ghost .face .eye {
   position: absolute;
   background: var(--404-dark-light);
@@ -1537,15 +1650,18 @@ body.dark-mode .ghost-copy::before, body.dark-mode .ghost-copy::after {
   left: 24%;
 }
 
+/* Dark mode ghost eye */
 body.dark-mode .ghost .face .eye {
   background: var(--404-dark-dark);
 }
 
+/* Right ghost eye */
 .ghost .face .eye.right {
   left: auto;
   right: 24%;
 }
 
+/* Ghost mouth */
 .ghost .face .mouth {
   position: absolute;
   top: 50%;
@@ -1559,10 +1675,12 @@ body.dark-mode .ghost .face .eye {
   transform: rotate(45deg);
 }
 
+/* Dark mode ghost mouth */
 body.dark-mode .ghost .face .mouth {
   border-color: var(--404-dark-dark);
 }
 
+/* Ghost hand */
 .ghost .hand {
   position: absolute;
   background: var(--404-white-light);
@@ -1575,18 +1693,20 @@ body.dark-mode .ghost .face .mouth {
   animation: wave 2s ease-out infinite;
 }
 
+/* Dark mode ghost hand */
 body.dark-mode .ghost .hand {
   background: var(--404-white-dark);
   border-color: var(--404-gray-dark);
 }
 
+/* Right ghost hand */
 .ghost .hand.right {
   left: auto;
   right: -15%;
   animation: wave-right 2s ease-out infinite;
 }
 
-/* Ghost animation keyframes */
+/* Ghost floating animation */
 @keyframes float {
   from {
     transform: translateY(0);
@@ -1599,6 +1719,7 @@ body.dark-mode .ghost .hand {
   }
 }
 
+/* Ghost hand waving animation */
 @keyframes wave {
   from {
     transform: rotate(0deg);
@@ -1611,6 +1732,7 @@ body.dark-mode .ghost .hand {
   }
 }
 
+/* Ghost right hand waving animation */
 @keyframes wave-right {
   from {
     transform: rotate(0deg);
@@ -1636,10 +1758,12 @@ body.dark-mode .ghost .hand {
   z-index: 0;
 }
 
+/* Dark mode ghost shadow */
 body.dark-mode .shadow {
   background: var(--404-gray-dark);
 }
 
+/* Shadow zoom animation */
 @keyframes zoom {
   from {
     transform: scale(1);
@@ -1652,7 +1776,7 @@ body.dark-mode .shadow {
   }
 }
 
-/* Links within the 404 section */
+/* Links in the bottom section of 404 page */
 .bottom a {
   font-family: var(--font-body);
   color: var(--404-dark-light);
@@ -1662,36 +1786,37 @@ body.dark-mode .shadow {
   border-radius: 5px;
   transition: all 0.2s ease;
   margin-top: 20px;
-  display: inline-block; /* Ensure it respects margin-top */
-  z-index: 10; /* Ensure link is clickable */
+  display: inline-block;
+  z-index: 10;
   position: relative;
 }
 
+/* Dark mode links in 404 bottom section */
 body.dark-mode .bottom a {
   color: var(--404-dark-dark);
   border-color: var(--404-dark-dark);
 }
 
+/* Links hover effect in 404 bottom section */
 .bottom a:hover {
   background: var(--404-dark-light);
   color: var(--404-white-light);
 }
 
+/* Dark mode links hover effect in 404 bottom section */
 body.dark-mode .bottom a:hover {
   background: var(--404-dark-dark);
-  color: var(--404-light-background-dark); /* Lighter hover color in dark mode */
+  color: var(--404-light-background-dark);
 }
 
-/* =====================================================
-    SEARCH BAR (FROM SearchBar.jsx)
-===================================================== */
+/* Search bar container */
 .search-bar-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 100%; /* Take full width available */
-  max-width: 600px; /* Limit max width for desktop */
-  margin: 0 auto 2rem auto; /* Center and add bottom margin */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
   padding: 10px;
   background-color: var(--card-background-light);
   border-radius: 0.75rem;
@@ -1699,13 +1824,15 @@ body.dark-mode .bottom a:hover {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Dark mode search bar container */
 body.dark-mode .search-bar-container {
   background-color: var(--card-background-dark);
   box-shadow: 0 2px 8px var(--shadow-dark);
 }
 
+/* Search input field */
 .search-input {
-  flex-grow: 1; /* Allows input to take up most of the space */
+  flex-grow: 1;
   padding: 12px 15px;
   border: 1px solid var(--border-color-light);
   border-radius: 0.5rem;
@@ -1715,51 +1842,59 @@ body.dark-mode .search-bar-container {
   transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark mode search input */
 body.dark-mode .search-input {
   background-color: var(--background-color-dark);
   border-color: var(--border-color-dark);
   color: var(--text-color-dark);
 }
 
+/* Search input focus state */
 .search-input:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
+/* Search button */
 .search-btn {
   background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 12px 20px;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+/* Search button hover effect */
 .search-btn:hover {
-  background-color: #0056b3; /* Darker primary */
+  background-color: #0056b3;
   transform: translateY(-1px);
 }
 
+/* Search button active state */
 .search-btn:active {
   transform: translateY(0);
 }
 
 /* Responsive adjustments for search bar */
 @media (max-width: 576px) {
+  /* Search bar container layout for smaller screens */
   .search-bar-container {
     flex-direction: column;
     align-items: stretch;
-    padding: 15px;
+    padding: 5px;
   }
+  /* Search input width for smaller screens */
   .search-input {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 10%;
+    margin-bottom: 1px;
   }
+  /* Search button width for smaller screens */
   .search-btn {
-    width: 100%;
+    width: 1%;
   }
 }

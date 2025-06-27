@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate for redirection
-import { products } from "../data"; // Assuming 'products' is imported correctly
+import React, { useContext, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { products } from "../data";
 import { Rating } from "react-simple-star-rating";
-import { CartContext } from "../App.jsx"; // Import CartContext
+import { CartContext } from "../App.jsx";
 
 function DetailPage() {
   const { id } = useParams();
-  const navigate = useNavigate(); // Initialize navigate hook
-  const { cart, setCart } = useContext(CartContext); // Get cart and setCart from context
+  const navigate = useNavigate();
+  const { cart, setCart } = useContext(CartContext);
 
-  // Find the product using strict equality and parsing the ID
+  const [popupMessage, setPopupMessage] = useState("");
+  const [popupVisible, setPopupVisible] = useState(false);
+
   const product = products.find((item) => item.id === parseInt(id));
 
-  // Handle case where product is not found
   if (!product) {
     return (
       <div className="detail-container no-product-found">
@@ -25,28 +26,30 @@ function DetailPage() {
     );
   }
 
-  // Handle adding product to cart
   const handleAddToCart = () => {
-    // Check if the item is already in the cart (you might want to allow multiple quantities later)
     if (!cart.some((item) => item.id === product.id)) {
-      setCart([...cart, { ...product, quantity: 1 }]); // Add product with default quantity of 1
-      alert(`${product.title} has been added to your cart!`); // Simple feedback
+      setCart([...cart, { ...product, quantity: 1 }]);
+      showPopup(`${product.title} has been added to your cart!`);
     } else {
-      alert(`${product.title} is already in your cart!`); // Feedback for existing item
-      // Alternatively, if you want to increment quantity:
-      // setCart(prevCart => prevCart.map(item =>
-      //   item.id === product.id ? { ...item, quantity: (item.quantity || 1) + 1 } : item
-      // ));
+      showPopup(`${product.title} is already in your cart!`);
     }
+  };
+
+  const showPopup = (message) => {
+    setPopupMessage(message);
+    setPopupVisible(true);
+    setTimeout(() => {
+      setPopupVisible(false);
+    }, 3000);
   };
 
   return (
     <div className="detail-container">
-      <div className="product-image-wrapper"> {/* Changed class for better styling */}
-        <img src={product.image} alt={product.title} className="detail-product-image" /> {/* Added class */}
+      <div className="product-image-wrapper">
+        <img src={product.image} alt={product.title} className="detail-product-image" />
       </div>
-      <div className="detail-product-info"> {/* Renamed for more specificity */}
-        <h1 className="detail-product-title">{product.title}</h1> {/* Added class for H1 */}
+      <div className="detail-product-info">
+        <h1 className="detail-product-title">{product.title}</h1>
         <p className="detail-product-description">{product.description}</p>
         <strong className="detail-product-price">PKR {product.price.toFixed(2)}</strong>
 
@@ -55,12 +58,25 @@ function DetailPage() {
             Add To Cart
           </button>
 
-          <div className="detail-product-rating">
-            <Rating readonly={true} allowFraction={true} initialValue={product.rating.rate} size={24} /> {/* Added size */}
-            <span className="rating-count">({product.rating.count} reviews)</span> {/* Added count */}
+          <div className="detail-product-rating" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Rating
+              readonly={true}
+              allowFraction={true}
+              initialValue={product.rating?.rate || 0}
+              size={24}
+            />
+            <span className="rating-count">
+              ({product.rating?.count || 0} reviews)
+            </span>
           </div>
         </div>
       </div>
+
+      {popupVisible && (
+        <div className="popup-message">
+          <span>{popupMessage}</span>
+        </div>
+      )}
     </div>
   );
 }
