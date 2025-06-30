@@ -89,6 +89,12 @@ function Navbar() {
                 <span className="cart-count">{cart.length}</span>
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">
+              <i class="bi bi-person-circle"></i>
+              </Link>
+            </li>
             <li className="nav-item">
               <DarkModeToggle />
             </li>

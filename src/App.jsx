@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import DetailPage from "./pages/DetailPage";
 import { createContext, useState } from "react";
+import Login from "./pages/Login";
 
 export const CartContext = createContext();
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Product/:id" element={<DetailPage />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
