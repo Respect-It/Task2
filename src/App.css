@@ -1908,7 +1908,7 @@ body.dark-mode .search-input {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body{
+.body-login{
   display: flex;
   justify-content: center;
   align-items: center;

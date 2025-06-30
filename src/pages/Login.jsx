@@ -3,6 +3,7 @@ import React from 'react'
 function Login() {
   return (
     <>
+    <body className="body-login">
   <div className="wrapper">
     <form action="">
       <h1>Login</h1>
@@ -24,6 +25,7 @@ function Login() {
       </div>
     </form>
   </div>
+  </body>
     </>
   )
 }
