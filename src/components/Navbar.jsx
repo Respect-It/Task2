@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../App";
 import DarkModeToggle from "./DarkModeToggle";
-import logo from "../assets/logo.png"; // ✅ Import the logo
+import logo from "../assets/logo.png"; 
+import '../styles/Navbar.css'
 
 function Navbar() {
   const { cart } = useContext(CartContext);
