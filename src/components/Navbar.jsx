@@ -92,7 +92,7 @@ function Navbar() {
 
             <li className="nav-item">
               <Link to="/login" className="nav-link">
-              <i class="bi bi-person-circle"></i>
+              <i className="bi bi-person-circle"></i>
               </Link>
             </li>
             <li className="nav-item">

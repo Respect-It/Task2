@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 function Login() {
+  const [user, setUser] = useState ({
+    usernmae:'',
+    password:''
+  })
+  const handleChangeUsernmae = (u)=>{
+    setUser({...user, usernmae:u.target.value})
+  }
+  const handleChangePassword = (p)=>{
+    setUser({...user, password:p.target.value})
+  }
   return (
     <div className="body-login">
       <div className="wrapper">
         <form action="">
           <h1>Login</h1>
           <div className="input-box">
-            <input type="text" placeholder="Username" required />
+            <input type="text" placeholder="Username" onChange={handleChangeUsernmae} required id="usernmae" />
             <i className="bx bxs-user"></i>
           </div>
           <div className="input-box">
-            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Password" onChange={handleChangePassword} required id="password" />
             <i className="bx bxs-lock-alt"></i>
           </div>
           <div className="remember-forgot">
