@@ -7,21 +7,36 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import DetailPage from "./pages/DetailPage";
-import { createContext, useState, useEffect, use } from "react";
+import { createContext, useState, useEffect } from "react";
 import Login from "./pages/Login";
 
 export const CartContext = createContext();
+
 export default function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      localStorage.removeItem("cart");
+    }
+  }, [cart]);
+
   useEffect(() => {
     const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
-    setCart(cartFromStorage || []);
+    if (cartFromStorage) {
+      setCart(cartFromStorage);
+    }
   }, []);
+
   useEffect(() => {
-    if (cart.length) {
+    if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
+
   return (
     <>
       <CartContext.Provider value={{ cart, setCart }}>
