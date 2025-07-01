@@ -1,0 +1,264 @@
+/* Cart page main container */
+.cart-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--card-background-light);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px var(--shadow-light);
+  }
+  
+  /* Dark mode cart page container */
+  body.dark-mode .cart-container {
+    background-color: var(--card-background-dark);
+    box-shadow: 0 4px 15px var(--shadow-dark);
+  }
+  
+  /* Cart page header */
+  .cart-header {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+  }
+  
+  /* Empty cart message */
+  .empty-cart-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    padding: 3rem 0;
+  }
+  
+  /* Cart items list */
+  .cart-items {
+    border-top: 1px solid var(--border-color-light);
+    padding-top: 1rem;
+  }
+  
+  /* Dark mode cart items list */
+  body.dark-mode .cart-items {
+    border-color: var(--border-color-dark);
+  }
+  
+  /* Individual cart item */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color-light);
+  }
+  
+  /* Dark mode individual cart item */
+  body.dark-mode .cart-item {
+    border-color: var(--border-color-dark);
+  }
+  
+  /* Last cart item no bottom border */
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Cart item image container */
+  .cart-item-image {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+  }
+  
+  /* Dark mode cart item image container */
+  body.dark-mode .cart-item-image {
+    background-color: var(--background-color-dark);
+  }
+  
+  /* Cart item image */
+  .cart-item-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  /* Cart item details section */
+  .item-details {
+    flex-grow: 1;
+  }
+  
+  /* Cart item details title */
+  .item-details h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--text-color-light);
+  }
+  
+  /* Dark mode cart item details title */
+  body.dark-mode .item-details h4 {
+    color: var(--text-color-dark);
+  }
+  
+  /* Cart item price */
+  .item-price {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Quantity control buttons and input */
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Quantity adjustment button */
+  .quantity-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Quantity button hover effect */
+  .quantity-button:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Quantity input field */
+  .quantity-input {
+    width: 50px;
+    text-align: center;
+    padding: 0.25rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    -webkit-appearance: textfield;
+  }
+  
+  /* Hide spin buttons for quantity input in WebKit browsers */
+  .quantity-input::-webkit-outer-spin-button,
+  .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Delete item button */
+  .delete-button {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Delete button hover effect */
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Cart summary section */
+  .cart-summary {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 5px var(--shadow-light);
+  }
+  
+  /* Dark mode cart summary */
+  body.dark-mode .cart-summary {
+    background-color: var(--background-color-dark);
+    border-color: var(--border-color-dark);
+    box-shadow: 0 2px 5px var(--shadow-dark);
+  }
+  
+  /* Summary row in cart summary */
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border-color-light);
+  }
+  
+  /* Dark mode summary row */
+  body.dark-mode .summary-row {
+    border-color: var(--border-color-dark);
+  }
+  
+  /* Last summary row no bottom border */
+  .summary-row:last-of-type {
+    border-bottom: none;
+  }
+  
+  /* Total row in cart summary */
+  .summary-row.total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    border-top: 2px solid var(--primary-color);
+    padding-top: 1rem;
+  }
+  
+  /* Checkout button styling */
+  .checkout-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Cart page footer */
+  .cart-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+  }
+  
+  /* Responsive adjustments for cart page */
+  @media (max-width: 768px) {
+    /* Cart item flex direction and alignment */
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+    }
+    /* Cart item image size and centering */
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 0.5rem auto;
+    }
+    /* Item details width and text alignment */
+    .item-details {
+      width: 100%;
+      text-align: center;
+    }
+    /* Quantity controls centering */
+    .quantity-controls {
+      justify-content: center;
+      width: 100%;
+    }
+    /* Delete button width and margin */
+    .delete-button {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }

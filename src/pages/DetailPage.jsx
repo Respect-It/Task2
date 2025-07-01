@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data";
 import { Rating } from "react-simple-star-rating";
 import { CartContext } from "../App.jsx";
+import '../styles/DetailPage.css'
 
 function DetailPage() {
   const { id } = useParams();

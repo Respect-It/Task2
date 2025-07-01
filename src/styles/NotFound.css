@@ -1,0 +1,332 @@
+/* 404 Not Found page background */
+#background {
+    background: var(--404-light-background-light);
+    color: var(--404-dark-light);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Dark mode 404 Not Found page background */
+  body.dark-mode #background {
+    background: var(--404-light-background-dark);
+    color: var(--404-dark-dark);
+  }
+  
+  /* Top section of 404 page */
+  #background .top {
+    margin-top: 25px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* H1 heading on 404 page */
+  #background h1 {
+    font-family: var(--font-big);
+    color: var(--404-white-light);
+    text-align: center;
+    font-size: 9em;
+    margin: 0;
+    text-shadow: -1px 0 var(--404-gray-light), 0 1px var(--404-gray-light), 1px 0 var(--404-gray-light), 0 -1px var(--404-gray-light);
+  }
+  
+  /* Dark mode H1 heading on 404 page */
+  body.dark-mode #background h1 {
+    color: var(--404-white-dark);
+    text-shadow: -1px 0 var(--404-gray-dark), 0 1px var(--404-gray-dark), 1px 0 var(--404-gray-dark), 0 -1px var(--404-gray-dark);
+  }
+  
+  /* H3 heading on 404 page */
+  #background h3 {
+    font-family: var(--font-body);
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--404-gray-light);
+    margin-top: -20px;
+    font-weight: 900;
+  }
+  
+  /* Dark mode H3 heading on 404 page */
+  body.dark-mode #background h3 {
+    color: var(--404-gray-dark);
+  }
+  
+  /* Paragraph text on 404 page */
+  #background p {
+    text-align: center;
+    font-family: var(--font-body);
+    color: var(--404-dark-light);
+    font-size: .6em;
+    margin-top: -20px;
+    text-transform: uppercase;
+  }
+  
+  /* Dark mode paragraph text on 404 page */
+  body.dark-mode #background p {
+    color: var(--404-dark-dark);
+  }
+  
+  /* Container for ghost animation */
+  .container {
+    margin: 0 auto;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-top: -40px;
+    z-index: 5;
+  }
+  
+  /* Ghost main body */
+  .ghost {
+    width: 50%;
+    height: 53%;
+    left: 25%;
+    top: 10%;
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    background: var(--404-white-light);
+    border: 1px solid var(--404-gray-light);
+    border-bottom: none;
+    animation: float 2s ease-out infinite;
+    z-index: 1;
+  }
+  
+  /* Dark mode ghost main body */
+  body.dark-mode .ghost {
+    background: var(--404-white-dark);
+    border-color: var(--404-gray-dark);
+  }
+  
+  /* Ghost copies (feet) */
+  .ghost-copy {
+    width: 50%;
+    height: 53%;
+    left: 25%;
+    top: 10%;
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    background: var(--404-white-light);
+    border: 1px solid var(--404-gray-light);
+    border-bottom: none;
+    animation: float 2s ease-out infinite;
+    z-index: 0;
+  }
+  
+  /* Dark mode ghost copies */
+  body.dark-mode .ghost-copy {
+    background: var(--404-white-dark);
+    border-color: var(--404-gray-dark);
+  }
+  
+  /* Ghost feet pseudo-elements */
+  .ghost-copy::before, .ghost-copy::after {
+    content: '';
+    background: var(--404-white-light);
+    border: 1px solid var(--404-gray-light);
+    border-radius: 0 50% 50% 0;
+    position: absolute;
+    width: 25%;
+    height: 20%;
+    top: 85%;
+    transform: rotate(45deg);
+    border-right: none;
+  }
+  
+  /* Dark mode ghost feet pseudo-elements */
+  body.dark-mode .ghost-copy::before, body.dark-mode .ghost-copy::after {
+    background: var(--404-white-dark);
+    border-color: var(--404-gray-dark);
+  }
+  
+  /* Left ghost foot */
+  .ghost-copy::before {
+    left: -12%;
+  }
+  
+  /* Right ghost foot */
+  .ghost-copy::after {
+    transform: rotate(-45deg);
+    right: -12%;
+  }
+  
+  /* Ghost face container */
+  .ghost .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ghost eye */
+  .ghost .face .eye {
+    position: absolute;
+    background: var(--404-dark-light);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 40%;
+    left: 24%;
+  }
+  
+  /* Dark mode ghost eye */
+  body.dark-mode .ghost .face .eye {
+    background: var(--404-dark-dark);
+  }
+  
+  /* Right ghost eye */
+  .ghost .face .eye.right {
+    left: auto;
+    right: 24%;
+  }
+  
+  /* Ghost mouth */
+  .ghost .face .mouth {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    border: 3px solid var(--404-dark-light);
+    border-radius: 50%;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+  
+  /* Dark mode ghost mouth */
+  body.dark-mode .ghost .face .mouth {
+    border-color: var(--404-dark-dark);
+  }
+  
+  /* Ghost hand */
+  .ghost .hand {
+    position: absolute;
+    background: var(--404-white-light);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--404-gray-light);
+    top: 70%;
+    left: -15%;
+    animation: wave 2s ease-out infinite;
+  }
+  
+  /* Dark mode ghost hand */
+  body.dark-mode .ghost .hand {
+    background: var(--404-white-dark);
+    border-color: var(--404-gray-dark);
+  }
+  
+  /* Right ghost hand */
+  .ghost .hand.right {
+    left: auto;
+    right: -15%;
+    animation: wave-right 2s ease-out infinite;
+  }
+  
+  /* Ghost floating animation */
+  @keyframes float {
+    from {
+      transform: translateY(0);
+    }
+    65% {
+      transform: translateY(15px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Ghost hand waving animation */
+  @keyframes wave {
+    from {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-30deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
+  /* Ghost right hand waving animation */
+  @keyframes wave-right {
+    from {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(30deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
+  /* Shadow beneath the ghost */
+  .shadow {
+    position: absolute;
+    width: 30%;
+    height: 4%;
+    background: var(--404-gray-light);
+    left: 35%;
+    top: 80%;
+    border-radius: 50%;
+    animation: zoom 2s ease-out infinite;
+    z-index: 0;
+  }
+  
+  /* Dark mode ghost shadow */
+  body.dark-mode .shadow {
+    background: var(--404-gray-dark);
+  }
+  
+  /* Shadow zoom animation */
+  @keyframes zoom {
+    from {
+      transform: scale(1);
+    }
+    65% {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  /* Links in the bottom section of 404 page */
+  .bottom a {
+    font-family: var(--font-body);
+    color: var(--404-dark-light);
+    text-decoration: none;
+    border: 1px solid var(--404-dark-light);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+    display: inline-block;
+    z-index: 10;
+    position: relative;
+  }
+  
+  /* Dark mode links in 404 bottom section */
+  body.dark-mode .bottom a {
+    color: var(--404-dark-dark);
+    border-color: var(--404-dark-dark);
+  }
+  
+  /* Links hover effect in 404 bottom section */
+  .bottom a:hover {
+    background: var(--404-dark-light);
+    color: var(--404-white-light);
+  }
+  
+  /* Dark mode links hover effect in 404 bottom section */
+  body.dark-mode .bottom a:hover {
+    background: var(--404-dark-dark);
+    color: var(--404-light-background-dark);
+  }

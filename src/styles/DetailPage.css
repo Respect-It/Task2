@@ -1,0 +1,192 @@
+/* Item details width and text alignment */
+.item-details {
+    width: 100%;
+    text-align: center;
+  }
+  /* Quantity controls centering */
+  .quantity-controls {
+    justify-content: center;
+    width: 100%;
+  }
+  /* Delete button width and margin */
+  .delete-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  /* Product detail page container */
+  .detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    background-color: var(--card-background-light);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px var(--shadow-light);
+  }
+  
+  /* Dark mode product detail page container */
+  body.dark-mode .detail-container {
+    background-color: var(--card-background-dark);
+    box-shadow: 0 4px 15px var(--shadow-dark);
+  }
+  
+  /* Product image wrapper on detail page */
+  .product-image-wrapper {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    padding: 1.5rem;
+  }
+  
+  /* Dark mode product image wrapper */
+  body.dark-mode .product-image-wrapper {
+    background-color: var(--background-color-dark);
+  }
+  
+  /* Product image on detail page */
+  .detail-product-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Product image hover effect on detail page */
+  .product-image-wrapper:hover .detail-product-image {
+    transform: scale(1.03);
+  }
+  
+  /* Product information section on detail page */
+  .detail-product-info {
+    flex: 1.5;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Product title on detail page */
+  .detail-product-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  /* Product description on detail page */
+  .detail-product-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+  }
+  
+  /* Dark mode product description on detail page */
+  body.dark-mode .detail-product-description {
+    color: var(--text-color-dark);
+  }
+  
+  /* Product price on detail page */
+  .detail-product-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--success-color);
+    margin-bottom: 2rem;
+    display: block;
+  }
+  
+  /* Product actions (buttons) on detail page */
+  .detail-product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: auto;
+  }
+  
+  /* Add to cart button on detail page */
+  .add-to-cart-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    flex-grow: 1;
+    min-width: 180px;
+  }
+  
+  /* Product rating on detail page */
+  .detail-product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Rating count on detail page */
+  .detail-product-rating .rating-count {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+  }
+  
+  /* No product found message container */
+  .detail-container.no-product-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: 50vh;
+  }
+  
+  /* No product found title */
+  .not-found-title {
+    font-size: 3rem;
+    color: var(--danger-color);
+    margin-bottom: 1rem;
+  }
+  
+  /* Not found message on detail page */
+  .not-found-message {
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+    margin-bottom: 2rem;
+  }
+  
+  /* Dark mode not found message */
+  body.dark-mode .not-found-message {
+    color: var(--text-color-dark);
+  }
+  
+  /* Go home button styling */
+  .go-home-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive adjustments for detail page */
+  @media (max-width: 991.98px) {
+    /* Detail container layout for smaller screens */
+    .detail-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    /* Product image wrapper width for smaller screens */
+    .product-image-wrapper {
+      max-width: 100%;
+      width: 100%;
+    }
+    /* Product info section width for smaller screens */
+    .detail-product-info {
+      min-width: unset;
+      width: 100%;
+    }
+    /* Product actions alignment for smaller screens */
+    .detail-product-actions {
+      justify-content: center;
+    }
+  }

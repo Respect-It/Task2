@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/About.css'
 function About() {
   return (
     <div className="about-page-wrapper">
@@ -21,7 +21,7 @@ function About() {
           </p>
         </div>
         <div className="about-image-area">
-          <img src="https://via.placeholder.com/400x300?text=Our+Story" alt="Our Story" className="about-image" />
+          <img src="https://as1.ftcdn.net/jpg/04/15/15/64/1000_F_415156437_VNwaQnydu0FRpG4jAmndvbqspNIoIard.webp" alt="Our Story" className="about-image" />
         </div>
       </section>
 

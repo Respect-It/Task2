@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
-import { CartContext } from "../App.jsx"; // Assuming CartContext is still in App.jsx
+import { CartContext } from "../App.jsx"; 
+import '../styles/Cards.css'
 
 export default function Cards({ product }) {
   const { cart, setCart } = useContext(CartContext);

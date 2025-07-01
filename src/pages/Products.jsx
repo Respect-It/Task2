@@ -1,7 +1,8 @@
 import React from 'react';
-import { products } from '../data'; // Assuming your products data is available
-import Cards from '../components/Cards'; // Assuming your Cards component is here
-import { useParams } from 'react-router-dom'; // For dynamic category display
+import { products } from '../data'; 
+import Cards from '../components/Cards'; 
+import { useParams } from 'react-router-dom'; 
+
 
 function Products() {
   const { category } = useParams(); // Get category from URL if routing is by category
