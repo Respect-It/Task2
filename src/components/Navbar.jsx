@@ -19,13 +19,13 @@ function Navbar() {
             <Link to="/shop">SHOP</Link>
           </li>
           <li>
-            <Link to="/ai-stylist">AI STYLIST</Link>
+            <Link to="/Products">PRODUCTS</Link>
           </li>
           <li>
-            <Link to="/lookbook">LOOKBOOK</Link>
+            <Link to="#">TOP PRODUCTS</Link>
           </li>
           <li>
-            <Link to="/blogs">BLOGS</Link>
+            <Link to="#">NEW STOCKS</Link>
           </li>
           <li>
             <Link to="/about">ABOUT US</Link>
