@@ -7,7 +7,6 @@ const Banner = () => {
     <section className="banner">
       <iframe
         src="https://my.spline.design/genkubgreetingrobot-bDgLe5b5me5mzFDpDsb5KhgG/"
-        frameborder="0"
         width="100%"
         height="100%"
       ></iframe>

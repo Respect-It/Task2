@@ -1,58 +1,46 @@
-/* Sticky Navbar Wrapper */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.top-bar {
-  background-color: #333;
-  height: 35px;
-}
-
+/* NAVBAR STRUCTURE */
 .main-navbar {
-  background: #fff;
-  backdrop-filter: blur(10px);
-  color: #111;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 2rem 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 1.5rem 2rem 1rem;
+  background: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
 }
 
-.nav-left {
+/* LEFT + RIGHT = flexible width */
+.nav-left,
+.nav-icons {
+  flex: 1 1 0;
   display: flex;
   gap: 1.8rem;
+  align-items: center;
   list-style: none;
-  flex: 1;
+}
+
+/* Left nav alignment */
+.nav-left {
   justify-content: flex-start;
 }
 
-.nav-left li a {
-  text-decoration: none;
-  color: #111;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  transition: color 0.3s ease;
+.nav-icons {
+  justify-content: flex-end;
 }
 
-.nav-left li a:hover {
-  color: #0f62fe;
-}
-
+/* Center logo absolute on large screens */
 .nav-logo {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  z-index: 1;
 }
 
+/* Logo styles */
 .nav-logo h1 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -66,20 +54,12 @@ header {
   margin-top: 0.2rem;
 }
 
-.nav-icons {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-end;
-}
-
+/* Icons */
 .nav-icons li {
-  position: relative;
   font-size: 1rem;
-  color: #111;
+  position: relative;
   cursor: pointer;
+  color: #111;
   transition: color 0.3s ease;
 }
 
@@ -88,16 +68,12 @@ header {
 }
 
 .nav-icons li a {
+  color: inherit;
   display: inline-flex;
   align-items: center;
-  color: inherit;
-  position: relative;
 }
 
-.nav-icons li a:hover {
-  color: var(--primary-color);
-}
-
+/* Badge */
 .icon-badge {
   background-color: #111;
   color: #fff;
@@ -109,13 +85,10 @@ header {
   top: -10px;
   right: -12px;
   line-height: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
-.icon-item {
-  position: relative;
-}
-
+/* ✅ Mobile responsiveness */
 @media (max-width: 992px) {
   .main-navbar {
     flex-direction: column;
