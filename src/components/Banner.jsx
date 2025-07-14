@@ -1,14 +1,20 @@
 import React from 'react';
-import banner1 from '../assets/banner1.jpg'
-import '../styles/Banner.css'
+import banner from '../assets/banner.webm';
+import '../styles/Banner.css';
+
 const Banner = () => {
   return (
     <section className="banner">
-      <img
-        src={banner1} // <-- Replace with actual image path or use import
-        alt="Well-dressed model"
+      <video
         className="banner-image"
-      />
+        src={banner}
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        Your browser does not support the video tag.
+      </video>
 
       <button className="shop-genie-btn">Shop Now</button>
     </section>
