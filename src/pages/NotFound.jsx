@@ -1,56 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../styles/NotFound.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/NotFound.css";
+import { FaGhost } from "react-icons/fa";
 
-const NotFound404 = () => {
-  const navigate = useNavigate();
-
-  // Handle navigation for "Back" and "Home" buttons
-  const handleBack = () => {
-    navigate(-1); // Go back to the previous page
-  };
-
-  const handleHome = () => {
-    navigate('/'); // Go to the home page
-  };
-
+function NotFound() {
   return (
-    <div id="background">
-      <div className="top">
+    <div className="notfound-page">
+      <div className="notfound-card">
+        <div className="floating-icon">
+          <FaGhost />
+        </div>
         <h1>404</h1>
-        <h3>page not found</h3>
-      </div>
-      <div className="container">
-        <div className="ghost-copy">
-          <div className="one"></div>
-          <div className="two"></div>
-          <div className="three"></div>
-          <div className="four"></div>
-        </div>
-        <div className="ghost">
-          <div className="face">
-            <div className="eye"></div>
-            <div className="eye-right"></div>
-            <div className="mouth"></div>
-          </div>
-        </div>
-        <div className="shadow"></div>
-      </div>
-      <div className="bottom">
-        <p>Boo, looks like a ghost stole this page!</p>
-        <form className="search">
-          <input type="text" className="search-bar" placeholder="Search" />
-          <button type="submit" className="search-btn">
-            <i className="fa fa-search"></i>
-          </button>
-        </form>
-        <div className="buttons">
-          <button className="btn" onClick={handleBack}>Back</button>
-          <button className="btn" onClick={handleHome}>Home</button>
-        </div>
+        <p className="subtitle">Oops! Page Not Found</p>
+        <p className="description">
+          The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.
+        </p>
+        <Link to="/" className="ripple-btn">Return Home</Link>
       </div>
     </div>
   );
-};
+}
 
-export default NotFound404;
+export default NotFound;

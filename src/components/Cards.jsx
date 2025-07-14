@@ -1,87 +1,63 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
-import { CartContext } from "../App.jsx"; 
-import '../styles/Cards.css'
+import { CartContext } from "../App.jsx";
+import { FaHeart, FaSearch, FaShoppingCart } from "react-icons/fa";
+import "../styles/Cards.css";
 
 export default function Cards({ product }) {
   const { cart, setCart } = useContext(CartContext);
-  const [showDetails, setShowDetails] = useState(false);
-  const [isWishlisted, setIsWishlisted] = useState(false); // To manage wishlist state
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
-  // Truncates text to a specified maximum length, adding "..." if truncated.
-  const truncateText = (text, maxLength) =>
-    text.length <= maxLength ? text : text.slice(0, maxLength) + "...";
-
-  // Handles adding the product to the cart if it's not already there.
   const handleAddToCart = () => {
     if (!cart.some((item) => item.id === product.id)) {
       setCart([...cart, product]);
-      alert(`${product.title} added to cart!`); // User feedback
-    } else {
-      alert(`${product.title} is already in your cart!`);
     }
   };
 
-  // Toggles the wishlist status of the product.
   const handleToggleWishlist = () => {
     setIsWishlisted(!isWishlisted);
-    alert(`${product.title} ${isWishlisted ? 'removed from' : 'added to'} wishlist!`);
   };
+
+  const productColors = ["black", "maroon", "beige"];
 
   return (
     <div className="product-card">
-      <div className="product-card-image-container">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="product-card-image"
-          loading="lazy"
-          onClick={handleAddToCart} // Clicking the image adds to cart
-        />
-        <div className="product-card-overlay">
-          <button className="overlay-button cart-button" onClick={handleAddToCart}>
-            Add to Cart
+      <div className="image-container">
+        <img src={product.image} alt={product.title} loading="lazy" />
+        <div className="hover-icons">
+          <button onClick={handleToggleWishlist}>
+            <FaHeart color={isWishlisted ? "red" : "#333"} />
           </button>
-          <button className="overlay-button wishlist-button" onClick={handleToggleWishlist}>
-            {isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
-          </button>
-          {/* You can add more buttons here, e.g., "Quick View" */}
+          <button><FaSearch /></button>
+          <button onClick={handleAddToCart}><FaShoppingCart /></button>
         </div>
-      </div>
-
-      <div
-        className="product-card-info-button"
-        onMouseEnter={() => setShowDetails(true)}
-        onMouseLeave={() => setShowDetails(false)}
-      >
-        {showDetails ? (
-          <div className="product-card-details-popup">
-            <h4 className="details-popup-title">{product.title}</h4>
-            <p className="details-popup-price">PKR {product.price.toFixed(2)}</p>
-            <p className="details-popup-description">{truncateText(product.description, 80)}</p>
-          </div>
-        ) : (
-          <div className="product-card-price-tag">
-            PKR {product.price.toFixed(2)}
-          </div>
-        )}
-      </div>
-
-      <div className="product-card-footer">
-        <Link to={`/product/${product.id}`} className="product-card-title-link">
-          <h3 className="product-card-title">{truncateText(product.title, 40)}</h3>
-        </Link>
-        <div className="product-card-rating">
+        <div className="rating-overlay">
           <Rating
-            readonly={true}
+            readonly
             initialValue={product.rating.rate}
-            allowFraction={true}
-            size={20}
+            allowFraction
+            size={18}
           />
-          <span className="product-card-rating-count">({product.rating.count})</span>
         </div>
       </div>
+
+      <div className="swatches">
+        {productColors.map((color, idx) => (
+          <span
+            key={idx}
+            className="swatch"
+            style={{ backgroundColor: color }}
+            title={color}
+          />
+        ))}
+      </div>
+
+      <Link to={`/products/${product.id}`} className="product-title">
+        {product.title.toUpperCase()}
+      </Link>
+
+      <p className="price">${product.price.toFixed(2)}</p>
     </div>
   );
 }

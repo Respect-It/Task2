@@ -1,165 +1,139 @@
-/* About page wrapper */
 .about-page-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  /* About page hero section */
-  .about-hero {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 4rem 2rem;
+  font-family: 'Inter', sans-serif;
+  color: #111;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+
+/* ===== Hero Section ===== */
+.about-hero {
+  background: #f5f5f5;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.about-hero-content .main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.about-hero-content .hero-tagline {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== Section Wrapper ===== */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+}
+
+/* Reverse Layout (image right) */
+.reversed-layout {
+  flex-direction: row-reverse;
+}
+
+/* ===== Content & Image Areas ===== */
+.about-content-area {
+  flex: 1 1 500px;
+}
+
+.about-content-area h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.about-content-area p {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.about-image-area {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Values List ===== */
+.about-our-values ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-our-values li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-our-values li strong {
+  color: #0f62fe;
+  margin-right: 0.3rem;
+}
+
+/* ===== Call to Action Section ===== */
+.about-call-to-action {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.about-call-to-action h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-call-to-action p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: #111;
+  color: white;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0f62fe;
+}
+
+/* ===== Responsive Tweaks ===== */
+@media (max-width: 768px) {
+  .about-section,
+  .reversed-layout {
+    flex-direction: column;
     text-align: center;
-    border-radius: 1rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   }
-  
-  /* About hero main title */
-  .about-hero .main-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  .about-content-area,
+  .about-image-area {
+    flex: 1 1 100%;
   }
-  
-  /* About hero tagline */
-  .about-hero .hero-tagline {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  /* About section layout */
-  .about-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    padding: 2rem;
-    background-color: var(--card-background-light);
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 10px var(--shadow-light);
-  }
-  
-  /* Dark mode about section */
-  body.dark-mode .about-section {
-    background-color: var(--card-background-dark);
-    box-shadow: 0 2px 10px var(--shadow-dark);
-  }
-  
-  /* About section heading */
-  .about-section h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-  }
-  
-  /* About section content area */
-  .about-content-area, .about-image-area {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  /* About section image */
-  .about-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px var(--shadow-light);
-  }
-  
-  /* Dark mode about section image */
-  body.dark-mode .about-image {
-    box-shadow: 0 4px 8px var(--shadow-dark);
-  }
-  
-  /* Reversed layout for about sections */
-  .about-section.reversed-layout {
-    flex-direction: row-reverse;
-  }
-  
-  /* About values list */
-  .about-our-values ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  /* About values list item */
-  .about-our-values li {
-    background-color: var(--background-color-light);
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    border-left: 5px solid var(--primary-color);
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px var(--shadow-light);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  /* Dark mode about values list item */
-  body.dark-mode .about-our-values li {
-    background-color: var(--background-color-dark);
-    box-shadow: 0 1px 3px var(--shadow-dark);
-  }
-  
-  /* About values list item hover effect */
-  .about-our-values li:hover {
-    background-color: #e9ecef;
-    border-color: #0056b3;
-  }
-  
-  /* Dark mode about values list item hover effect */
-  body.dark-mode .about-our-values li:hover {
-    background-color: #2e2e2e;
-  }
-  
-  /* About values list item strong text */
-  .about-our-values li strong {
-    color: var(--primary-color);
-  }
-  
-  /* About call to action section */
-  .about-call-to-action {
-    text-align: center;
-    background-color: var(--info-color);
-    color: white;
-    padding: 3rem 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0;
-  }
-  
-  /* About call to action heading */
-  .about-call-to-action h2 {
-    color: white;
-    margin-bottom: 1rem;
-  }
-  
-  /* About call to action paragraph */
-  .about-call-to-action p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Responsive adjustments for about page */
-  @media (max-width: 768px) {
-    /* About hero title font size */
-    .about-hero .main-title {
-      font-size: 2.5rem;
-    }
-    /* About section flex direction and alignment */
-    .about-section, .about-section.reversed-layout {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    /* About content and image area width */
-    .about-content-area, .about-image-area {
-      min-width: unset;
-      width: 100%;
-    }
-  }
+}

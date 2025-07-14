@@ -1,37 +1,41 @@
 import React from 'react';
-import { products } from '../data'; 
-import Cards from '../components/Cards'; 
-import { useParams } from 'react-router-dom'; 
-
+import { products } from '../data';
+import Cards from '../components/Cards';
+import { useParams } from 'react-router-dom';
+import { FaBoxOpen } from 'react-icons/fa';
+import '../styles/Products.css';
 
 function Products() {
-  const { category } = useParams(); // Get category from URL if routing is by category
+  const { category } = useParams();
 
-  // Filter products based on category, or show all if no category is specified
   const filteredProducts = category
     ? products.filter(
         (product) => product.category.toLowerCase() === category.toLowerCase()
       )
-    : products; // Show all products if no category is in the URL
+    : products;
 
   const pageTitle = category
     ? `${category} Products`
     : 'All Products';
 
   return (
-    <div className="products-page-wrapper">
-      <h1 className="products-page-title">{pageTitle}</h1>
+    <div className="products-wrapper">
+      <div className="products-header glass-header">
+        <h1>{pageTitle}</h1>
+        <p>Explore our curated selection just for you.</p>
+      </div>
+
       {filteredProducts.length === 0 ? (
-        <p className="no-products-message">No products found in this category.</p>
+        <div className="no-products">
+          <FaBoxOpen className="empty-icon" />
+          <h2>No products found</h2>
+          <p>We couldn't find anything under this category.</p>
+        </div>
       ) : (
-        <div className="product-grid-section"> {/* Re-using the grid section class from Home */}
-          <div className="row">
-            {filteredProducts.map((product) => (
-              <div className="col-md-4 col-sm-6 col-xs-12 product-card-column" key={product.id}>
-                <Cards product={product} />
-              </div>
-            ))}
-          </div>
+        <div className="product-grid animated-grid">
+          {filteredProducts.map((product) => (
+            <Cards key={product.id} product={product} />
+          ))}
         </div>
       )}
     </div>

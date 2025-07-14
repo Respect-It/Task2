@@ -1,14 +1,18 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createContext, useState, useEffect } from "react";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Banner from "./components/Banner";
+
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Products from "./pages/Products";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
-import Navbar from "./components/Navbar";
+import Auth from "./pages/Auth";
+import Products from "./pages/Products";
 import DetailPage from "./pages/DetailPage";
-import { createContext, useState, useEffect } from "react";
-import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 export const CartContext = createContext();
 
@@ -19,39 +23,48 @@ export default function App() {
   });
 
   useEffect(() => {
-    if (cart.length === 0) {
-      localStorage.removeItem("cart");
-    }
-  }, [cart]);
-
-  useEffect(() => {
-    const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
-    if (cartFromStorage) {
-      setCart(cartFromStorage);
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart && cart.length === 0) {
+      setCart(JSON.parse(savedCart));
     }
   }, []);
 
   useEffect(() => {
-    if (cart.length > 0) {
+    if (cart.length === 0) {
+      localStorage.removeItem("cart");
+    } else {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
 
   return (
-    <>
-      <CartContext.Provider value={{ cart, setCart }}>
-        <BrowserRouter>
+    <CartContext.Provider value={{ cart, setCart }}>
+      <Router>
+        <div className="app-container">
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Product/:id" element={<DetailPage />} />
-            <Route path="/Cart" element={<Cart />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </CartContext.Provider>
-    </>
+          <main className="main-content">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Banner />
+                    <Home />
+                  </>
+                }
+              />
+              <Route path="/About" element={<About />} />
+              <Route path="/Cart" element={<Cart />} />
+              <Route path="/Auth" element={<Auth />} />
+              <Route path="/Products" element={<Products />} />
+              <Route path="/Products/:category" element={<Products />} />
+              <Route path="/Product/:id" element={<DetailPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </CartContext.Provider>
   );
 }
