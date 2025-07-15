@@ -44,7 +44,7 @@ const Chatbot = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage }),
       });
-
+      
       const data = await res.json();
       simulateTyping(data.reply || "🤖 No response from AI.", updated);
     } catch {
